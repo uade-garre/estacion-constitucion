@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos, titulo y enlaces a hojas de estilo de la pagina. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estaci&oacute;n Constituci&oacute;n | Trackline Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body class="station-page">
+    <!-- Encabezado con marca y navegacion principal. -->
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="https://omarcabezasuade.github.io/Grupo-06/" class="logo">TRACKLINE STUDIO</a>
+            <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu">
+                <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect width="22" height="2" rx="1" fill="currentColor"/>
+                    <rect y="6" width="22" height="2" rx="1" fill="currentColor"/>
+                    <rect y="12" width="22" height="2" rx="1" fill="currentColor"/>
+                </svg>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Principal">
+                <a href="https://omarcabezasuade.github.io/Grupo-06/">Inicio</a>
+                <button class="menu-link menu-trigger" type="button" data-menu="servicios" aria-expanded="false">Servicios</button>
+                <a href="https://omarcabezasuade.github.io/Grupo-06/alianzas.html">Alianzas</a>
+                <button class="menu-link menu-trigger active" type="button" data-menu="casos" aria-expanded="false" aria-current="page">Casos</button>
+                <a href="https://omarcabezasuade.github.io/Grupo-06/contacto.html">Contacto</a>
+                <button class="menu-link menu-trigger" type="button" data-menu="nosotros" aria-expanded="false">Nosotros</button>
+            </nav>
+            <div class="mega-menu" aria-hidden="true">
+                <div class="mega-panel" data-panel="servicios">
+                    <span class="mega-kicker">Servicios</span>
+                    <a href="https://omarcabezasuade.github.io/Grupo-06/servicios.html">Consultoria UX/UI</a>
+                    <a href="https://omarcabezasuade.github.io/Grupo-06/servicios.html">Desarrollo web</a>
+                    <a href="https://omarcabezasuade.github.io/Grupo-06/servicios.html">Automatizacion</a>
+                    <a href="https://omarcabezasuade.github.io/Grupo-06/servicios.html">Datos y rendimiento</a>
+                </div>
+                <div class="mega-panel" data-panel="casos">
+                    <span class="mega-kicker">Resultados</span>
+                    <a href="index.html">Estaci&oacute;n Constituci&oacute;n</a>
+                    <a href="https://omarcabezasuade.github.io/Grupo-06/casos_de_exito.html">Emprendimiento tecnologico</a>
+                    <a href="https://omarcabezasuade.github.io/Grupo-06/casos_de_exito.html">Empresa corporativa</a>
+                </div>
+                <div class="mega-panel" data-panel="nosotros">
+                    <span class="mega-kicker">Trackline</span>
+                    <a href="https://omarcabezasuade.github.io/Grupo-06/sobre_nosotros.html">Equipo y enfoque</a>
+                    <a href="https://omarcabezasuade.github.io/Grupo-06/sobre_nosotros.html">Valores</a>
+                    <a href="https://omarcabezasuade.github.io/Grupo-06/alianzas.html">Alianzas</a>
+                    <a href="https://omarcabezasuade.github.io/Grupo-06/contacto.html">Hablemos</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Contenido principal de la pagina. -->
+    <main class="page-shell">
+        <div class="container">
+            <section class="station-hero">
+                <div class="station-hero-copy">
+                    <span class="eyebrow">Caso ferroviario</span>
+                    <h1>Estaci&oacute;n Constituci&oacute;n como hub digital de l&iacute;neas.</h1>
+                    <p>
+                        Una portada central para organizar recorridos, accesos, servicios y derivar a cada
+                        l&iacute;nea de tren con una navegaci&oacute;n clara desde la web de la consultora.
+                    </p>
+                    <div class="station-status" aria-label="Resumen de la estacion">
+                        <span><strong>4</strong> l&iacute;neas conectadas</span>
+                        <span><strong>24 h</strong> informaci&oacute;n disponible</span>
+                        <span><strong>1</strong> punto de entrada</span>
+                    </div>
+                </div>
+                <div class="station-board" aria-label="Visual de andenes de Estacion Constitucion">
+                    <span class="platform-line"></span>
+                    <span class="platform-line"></span>
+                    <span class="platform-line"></span>
+                    <span class="platform-line"></span>
+                    <span class="train-marker"></span>
+                    <div class="station-label">
+                        <span>Constituci&oacute;n</span>
+                        <span>Andenes</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-block reveal-on-scroll" aria-labelledby="lineas-title">
+                <div class="section-header">
+                    <span class="eyebrow">L&iacute;neas</span>
+                    <h2 id="lineas-title">Accesos principales desde Constituci&oacute;n.</h2>
+                    <p>Estos accesos quedan listos para integrar las p&aacute;ginas de cada recorrido.</p>
+                </div>
+                <div class="line-card-grid">
+                    <a class="line-card" style="--line-color: #65d6df" href="../lineas/roca-gutierrez/index.html">
+                        <span>
+                            <small>L&iacute;nea Roca</small>
+                            <h2>Roca - Guti&eacute;rrez</h2>
+                            <p>Base preparada para sumar la p&aacute;gina existente del ramal.</p>
+                        </span>
+                        <strong>Ver l&iacute;nea</strong>
+                    </a>
+                    <a class="line-card" style="--line-color: #f2c14e" href="../lineas/roca-la-plata.html">
+                        <span>
+                            <small>L&iacute;nea Roca</small>
+                            <h2>Roca - La Plata</h2>
+                            <p>Informaci&oacute;n de estaciones, combinaciones y servicios.</p>
+                        </span>
+                        <strong>Ver l&iacute;nea</strong>
+                    </a>
+                    <a class="line-card" style="--line-color: #ef476f" href="../lineas/roca-ezeiza.html">
+                        <span>
+                            <small>L&iacute;nea Roca</small>
+                            <h2>Roca - Ezeiza</h2>
+                            <p>Ficha inicial para completar recorridos y horarios.</p>
+                        </span>
+                        <strong>Ver l&iacute;nea</strong>
+                    </a>
+                    <a class="line-card" style="--line-color: #2ec4b6" href="../lineas/roca-bosques.html">
+                        <span>
+                            <small>L&iacute;nea Roca</small>
+                            <h2>Roca - Bosques</h2>
+                            <p>Secci&oacute;n lista para sumar detalle operativo del ramal.</p>
+                        </span>
+                        <strong>Ver l&iacute;nea</strong>
+                    </a>
+                </div>
+            </section>
+
+            <section class="station-feature-grid reveal-on-scroll" aria-label="Contenido de la estacion">
+                <article class="station-feature">
+                    <h2>Servicios</h2>
+                    <p>Boleter&iacute;as, atenci&oacute;n, accesos y puntos de orientaci&oacute;n para pasajeros.</p>
+                </article>
+                <article class="station-feature">
+                    <h2>Conexiones</h2>
+                    <p>V&iacute;nculos con subte, colectivos y recorridos peatonales cercanos.</p>
+                </article>
+                <article class="station-feature">
+                    <h2>Experiencia</h2>
+                    <p>Una interfaz pensada para encontrar r&aacute;pido la l&iacute;nea o ramal necesario.</p>
+                </article>
+            </section>
+        </div>
+    </main>
+    <!-- Pie de pagina con creditos y enlaces secundarios. -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>Copyright 2026 - Trackline Studio - Todos los derechos reservados</p>
+            <div class="footer-bottom">
+                <a href="https://omarcabezasuade.github.io/Grupo-06/">Inicio</a> |
+                <a href="https://omarcabezasuade.github.io/Grupo-06/mapa_sitio.html">Mapa del sitio</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts que activan la interaccion de la pagina. -->
+    <script src="js/app.js"></script>
+</body>
+</html>
