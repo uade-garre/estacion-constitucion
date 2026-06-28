@@ -230,16 +230,10 @@
                 </tbody>
               </table>
             </div>
-            <div class="mt-6 flex flex-wrap items-center justify-between gap-3 text-sm text-slate-600">
-              <p>Ver anteriores</p>
-              <div class="flex items-center gap-2">
-                <button class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700">1</button>
-                <button class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-brand text-white">2</button>
-                <button class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700">3</button>
-                <span class="px-2">...</span>
-                <button class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700">14</button>
-              </div>
-              <p>Ver posteriores</p>
+            <div class="mt-6 flex flex-wrap items-center justify-between gap-3 text-sm text-slate-600" aria-label="Paginacion de horarios">
+              <button id="prev-page" type="button" class="rounded-full px-3 py-2 font-semibold text-slate-600 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40">Ver anteriores</button>
+              <div id="pagination-pages" class="flex items-center gap-2"></div>
+              <button id="next-page" type="button" class="rounded-full px-3 py-2 font-semibold text-slate-600 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-40">Ver posteriores</button>
             </div>
           </div>
         </article>
@@ -278,6 +272,12 @@
     const routeSummary = document.getElementById('route-summary');
     const timetableHead = document.getElementById('timetable-head');
     const timetableBody = document.getElementById('timetable-body');
+    const paginationPages = document.getElementById('pagination-pages');
+    const prevPage = document.getElementById('prev-page');
+    const nextPage = document.getElementById('next-page');
+    const totalPages = 14;
+    let currentBranch = 'all';
+    let currentPage = 1;
 
     const branchSchedules = {
       all: {
@@ -334,15 +334,74 @@
       }
     };
 
-    function renderSchedule(branchKey) {
+    function addMinutes(time, minutes) {
+      const parts = time.split(':').map(Number);
+      const total = (parts[0] * 60 + parts[1] + minutes) % (24 * 60);
+      const normalized = total < 0 ? total + (24 * 60) : total;
+      const hour = String(Math.floor(normalized / 60)).padStart(2, '0');
+      const minute = String(normalized % 60).padStart(2, '0');
+      return `${hour}:${minute}`;
+    }
+
+    function buildPageRows(schedule, page) {
+      const offset = (page - 1) * 75;
+      return schedule.rows.map((row, index) => {
+        const trainNumber = Number(row.train) + ((page - 1) * schedule.rows.length) + index;
+        return {
+          train: String(trainNumber),
+          times: row.times.map(time => addMinutes(time, offset)),
+          status: row.status,
+          badge: row.badge
+        };
+      });
+    }
+
+    function pageButtonClass(isActive) {
+      return isActive
+        ? 'inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand bg-brand text-white'
+        : 'inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 transition hover:bg-slate-50';
+    }
+
+    function renderPagination() {
+      if (!paginationPages || !prevPage || !nextPage) return;
+      const visiblePages = new Set([1, totalPages, currentPage, currentPage - 1, currentPage + 1]);
+      paginationPages.innerHTML = '';
+      let lastRendered = 0;
+      Array.from(visiblePages)
+        .filter(page => page >= 1 && page <= totalPages)
+        .sort((a, b) => a - b)
+        .forEach(page => {
+          if (lastRendered && page - lastRendered > 1) {
+            const ellipsis = document.createElement('span');
+            ellipsis.className = 'px-2 text-slate-500';
+            ellipsis.textContent = '...';
+            paginationPages.appendChild(ellipsis);
+          }
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = pageButtonClass(page === currentPage);
+          button.textContent = page;
+          button.setAttribute('aria-label', `Ver pagina ${page} de horarios`);
+          if (page === currentPage) button.setAttribute('aria-current', 'page');
+          button.addEventListener('click', () => renderSchedule(currentBranch, page));
+          paginationPages.appendChild(button);
+          lastRendered = page;
+        });
+      prevPage.disabled = currentPage === 1;
+      nextPage.disabled = currentPage === totalPages;
+    }
+
+    function renderSchedule(branchKey, page = 1) {
+      currentBranch = branchKey;
+      currentPage = Math.min(Math.max(page, 1), totalPages);
       const schedule = branchSchedules[branchKey] || branchSchedules.all;
       routeLabel.textContent = schedule.label;
-      routeSummary.textContent = schedule.summary;
+      routeSummary.textContent = `${schedule.summary} · página ${currentPage} de ${totalPages}`;
 
       const headerRow = schedule.stops.map(header => `<th class="px-4 py-4 font-semibold whitespace-normal">${header}</th>`).join('');
       timetableHead.innerHTML = `<tr>${headerRow}</tr>`;
 
-      timetableBody.innerHTML = schedule.rows.map(row => {
+      timetableBody.innerHTML = buildPageRows(schedule, currentPage).map(row => {
         const cells = [
           `<td class="px-4 py-4 font-semibold text-brand break-words">${row.train}</td>`,
           ...schedule.stops.slice(1, -1).map((_, idx) => `<td class="px-4 py-4 break-words">${row.times[idx] || '-'}</td>`),
@@ -350,11 +409,14 @@
         ].join('');
         return `<tr class="hover:bg-slate-50">${cells}</tr>`;
       }).join('');
+      renderPagination();
     }
 
     branchRadios.forEach(radio => radio.addEventListener('change', (event) => {
-      renderSchedule(event.target.value);
+      renderSchedule(event.target.value, 1);
     }));
+    if (prevPage) prevPage.addEventListener('click', () => renderSchedule(currentBranch, currentPage - 1));
+    if (nextPage) nextPage.addEventListener('click', () => renderSchedule(currentBranch, currentPage + 1));
 
     renderSchedule('all');
   </script>
