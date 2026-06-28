@@ -53,11 +53,12 @@
           </div>
         </div>
           <a href="servicios.html" class="hover:text-slate-900">Servicios</a>
+          <a href="#mapa-terminal" class="hover:text-slate-900">Mapa terminal</a>
           <a href="noticias.html" class="hover:text-slate-900">Noticias</a>
           <a href="faq.html" class="hover:text-slate-900">Preguntas frecuentes</a>
         </nav>
         <div class="flex items-center gap-3">
-          <a href="#" class="hidden sm:inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">Mi cuenta</a>
+          <a href="#salidas-plataformas" class="hidden sm:inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">Estado del servicio</a>
         </div>
       </div>
     </header>
@@ -67,12 +68,13 @@
         <h1 class="mt-4 text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight text-white">Estación Constitución: <span class="block">El corazón de la Línea Roca</span></h1>
         <p class="mt-6 max-w-2xl text-base sm:text-lg leading-8 text-slate-100/85">La terminal de Constitución combina arquitectura histórica, un flujo diario constante de trenes y un servicio pensado para el viajero urbano. Información clara y actualizada al alcance de tu mano.</p>
       </div>
-      <form class="mt-10 max-w-3xl mx-auto px-6 lg:px-8">
+      <form id="station-search" class="mt-10 max-w-3xl mx-auto px-6 lg:px-8">
         <div class="flex flex-col gap-3 sm:flex-row">
-          <label class="sr-only" for="search">Buscar horarios y estados</label>
-          <input id="search" type="search" placeholder="Horarios y Estados del Servicio" class="min-w-0 flex-1 rounded-full border border-white/30 bg-white/95 px-5 py-4 text-slate-900 shadow-[0_16px_40px_rgba(15,23,42,0.12)] focus:border-white focus:outline-none focus:ring-2 focus:ring-white/40" />
+          <label class="sr-only" for="search">Buscar servicios, andenes o lugares de la terminal</label>
+          <input id="search" type="search" placeholder="Buscar baño, SUBE, andén, La Plata..." class="min-w-0 flex-1 rounded-full border border-white/30 bg-white/95 px-5 py-4 text-slate-900 shadow-[0_16px_40px_rgba(15,23,42,0.12)] focus:border-white focus:outline-none focus:ring-2 focus:ring-white/40" />
           <button type="submit" class="inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-brand shadow-lg shadow-slate-900/10 transition hover:bg-slate-100">Buscar</button>
         </div>
+        <p id="search-result" class="mt-4 hidden rounded-2xl bg-white/95 px-5 py-4 text-sm font-semibold leading-6 text-slate-800 shadow-lg"></p>
       </form>
     </div>
   </div>
@@ -109,6 +111,77 @@
       </article>
     </section>
 
+    <section id="mapa-terminal" class="mt-10 grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
+      <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand">Mapa interactivo</p>
+            <h2 class="mt-3 text-2xl font-semibold text-slate-950">Ubicación dentro de la terminal</h2>
+            <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-600">Seleccioná una zona para ubicar servicios clave, accesos y puntos de interés antes de circular por la estación.</p>
+          </div>
+          <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-600">
+            <button class="terminal-filter is-active rounded-full border border-brand bg-brand px-4 py-2 text-white" type="button" data-filter="todos">Todos</button>
+            <button class="terminal-filter rounded-full border border-slate-200 px-4 py-2" type="button" data-filter="servicio">Servicios</button>
+            <button class="terminal-filter rounded-full border border-slate-200 px-4 py-2" type="button" data-filter="anden">Andenes</button>
+            <button class="terminal-filter rounded-full border border-slate-200 px-4 py-2" type="button" data-filter="interes">Interés</button>
+          </div>
+        </div>
+        <div class="terminal-map mt-6" aria-label="Plano simplificado de Estación Constitución">
+          <div class="map-zone map-hall">Hall central</div>
+          <div class="map-zone map-platforms">Andenes 1-16</div>
+          <div class="map-zone map-access">Accesos Brasil / Hornos</div>
+          <button class="map-point is-active" type="button" style="left: 18%; top: 32%;" data-type="servicio" data-title="Punto de información" data-detail="Orientación al pasajero, reclamos y consultas generales en el hall central.">i</button>
+          <button class="map-point" type="button" style="left: 36%; top: 63%;" data-type="servicio" data-title="Baños públicos" data-detail="Baños ubicados cerca del corredor central y próximos al sector de andenes.">WC</button>
+          <button class="map-point" type="button" style="left: 58%; top: 38%;" data-type="anden" data-title="Andenes principales" data-detail="Sectores de salida de ramales La Plata, Ezeiza, Alejandro Korn y Bosques.">A</button>
+          <button class="map-point" type="button" style="left: 78%; top: 28%;" data-type="interes" data-title="Comercios y cafeterías" data-detail="Locales de comida, kioscos y cafeterías para compras rápidas antes del viaje.">$</button>
+          <button class="map-point" type="button" style="left: 23%; top: 73%;" data-type="interes" data-title="Carga SUBE" data-detail="Puntos de carga y consulta de saldo SUBE próximos a boleterías.">S</button>
+          <button class="map-point" type="button" style="left: 45%; top: 18%;" data-type="servicio" data-title="Combinación Subte C" data-detail="Conexión directa hacia Subte C y salida al entorno urbano de Constitución.">C</button>
+        </div>
+      </article>
+      <aside class="rounded-[28px] border border-slate-200 bg-slate-950 p-6 text-white shadow-soft">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-300">Detalle seleccionado</p>
+        <h3 id="map-detail-title" class="mt-4 text-2xl font-semibold">Punto de información</h3>
+        <p id="map-detail-copy" class="mt-4 text-sm leading-7 text-slate-200">Orientación al pasajero, reclamos y consultas generales en el hall central.</p>
+        <div class="mt-6 rounded-2xl bg-white/10 p-4">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">Criterio de diseño</p>
+          <p class="mt-2 text-sm leading-6 text-slate-100">El mapa reduce la incertidumbre del pasajero y organiza la terminal por tareas: viajar, orientarse, comprar y resolver necesidades básicas.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="salidas-plataformas" class="mt-10 rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand">Salidas por plataforma</p>
+          <h2 class="mt-3 text-2xl font-semibold text-slate-950">Andenes habituales de la Línea Roca</h2>
+          <p class="mt-3 text-sm leading-6 text-slate-600">Información orientativa: las plataformas pueden cambiar por operación ferroviaria y deben confirmarse en pantallas de estación.</p>
+        </div>
+        <a href="ramales.html" class="inline-flex items-center justify-center rounded-full border border-brand px-5 py-3 text-sm font-semibold text-brand hover:bg-brand/5">Ver ramales</a>
+      </div>
+      <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <article class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <p class="text-sm font-semibold text-slate-950">La Plata</p>
+          <p class="mt-2 text-3xl font-semibold text-brand">1-4</p>
+          <p class="mt-2 text-xs text-slate-500">Vía Quilmes / Berazategui</p>
+        </article>
+        <article class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <p class="text-sm font-semibold text-slate-950">Alejandro Korn</p>
+          <p class="mt-2 text-3xl font-semibold text-brand">5-8</p>
+          <p class="mt-2 text-xs text-slate-500">Vía Temperley</p>
+        </article>
+        <article class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <p class="text-sm font-semibold text-slate-950">Ezeiza / Glew</p>
+          <p class="mt-2 text-3xl font-semibold text-brand">9-12</p>
+          <p class="mt-2 text-xs text-slate-500">Confirmar por demoras</p>
+        </article>
+        <article class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <p class="text-sm font-semibold text-slate-950">Bosques / Gutiérrez</p>
+          <p class="mt-2 text-3xl font-semibold text-brand">13-16</p>
+          <p class="mt-2 text-xs text-slate-500">Ramal operado por sectores</p>
+        </article>
+      </div>
+    </section>
+
     <section class="mt-10 grid gap-6 lg:grid-cols-[1.7fr_1fr]">
       <article class="rounded-[28px] border border-slate-200 bg-white shadow-soft overflow-hidden">
         <div class="relative h-80 overflow-hidden bg-slate-950">
@@ -119,7 +192,7 @@
         <div class="p-8">
           <h3 class="text-2xl font-semibold text-slate-900">Monumento Histórico Nacional</h3>
           <p class="mt-4 text-base leading-7 text-slate-700">Inaugurada en su forma actual a finales del siglo XIX, la terminal de Constitución es uno de los monumentos arquitectónicos más significativos de Argentina. Su imponente fachada y el gran vestíbulo de pasajeros reflejan la era de oro del ferrocarril en el país.</p>
-          <a href="#" class="mt-6 inline-flex items-center text-sm font-semibold text-brand hover:text-brand-dark">Seguir leyendo →</a>
+          <a href="noticias.html" class="mt-6 inline-flex items-center text-sm font-semibold text-brand hover:text-brand-dark">Seguir leyendo →</a>
         </div>
       </article>
       <div class="space-y-6">
@@ -158,7 +231,7 @@
         <section class="rounded-[28px] border border-slate-200 bg-white shadow-soft p-6">
           <h4 class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Notificaciones</h4>
           <p class="mt-4 text-base leading-7 text-slate-700">Recibí alertas en tu celular</p>
-          <button class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">Activar notificaciones</button>
+          <a href="noticias.html" class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">Ver novedades</a>
         </section>
       </div>
     </section>
@@ -167,18 +240,18 @@
   <footer class="border-t border-slate-200 bg-white py-8">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <p class="text-sm text-slate-600">Desarrollado por <a href="https://uade-garre.github.io/consultora/" class="font-semibold text-brand hover:text-brand-dark">Trackline Studio</a> - 2026</p>
+        <p class="text-sm text-slate-600">Desarrollado por <a href="https://uade-garre.github.io/consultora/" class="font-semibold text-brand hover:text-brand-dark">Trackline</a> - 2026</p>
         <div class="flex flex-wrap items-center gap-4 text-sm text-slate-500">
-          <a href="#" class="hover:text-slate-900">Política de privacidad</a>
-          <a href="#" class="hover:text-slate-900">Términos del servicio</a>
-          <a href="#" class="hover:text-slate-900">Accesibilidad</a>
-          <a href="#" class="hover:text-slate-900">Transparencia</a>
-          <a href="#" class="hover:text-slate-900">Contacto</a>
+          <a href="faq.html" class="hover:text-slate-900">Preguntas frecuentes</a>
+          <a href="#mapa-terminal" class="hover:text-slate-900">Mapa terminal</a>
+          <a href="servicios.html" class="hover:text-slate-900">Accesibilidad</a>
+          <a href="servicios.html" class="hover:text-slate-900">Servicios</a>
+          <a href="ramales.html" class="hover:text-slate-900">Ramales</a>
         </div>
       </div>
     </div>
   </footer>
-  <a class="whatsapp-float" href="https://wa.me/5491124576849?text=Hola%20Trackline%20Studio,%20quiero%20consultar%20por%20Estacion%20Constitucion" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/5491124576849?text=Hola%20Trackline,%20quiero%20consultar%20por%20Estacion%20Constitucion" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
     <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
       <path fill="#fff" d="M16.01 4.25c-6.47 0-11.73 5.23-11.73 11.67 0 2.07.55 4.09 1.59 5.86L4.19 28l6.38-1.67a11.78 11.78 0 0 0 5.44 1.33c6.47 0 11.73-5.24 11.73-11.68S22.48 4.25 16.01 4.25Zm0 21.43c-1.78 0-3.52-.48-5.03-1.38l-.36-.21-3.78.99 1.01-3.67-.24-.38a9.66 9.66 0 0 1-1.47-5.11c0-5.35 4.43-9.7 9.87-9.7 5.43 0 9.86 4.35 9.86 9.7 0 5.36-4.43 9.76-9.86 9.76Zm5.41-7.29c-.3-.15-1.76-.86-2.03-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.95 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.39-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.18 5.08 4.46.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.68.25-1.27.17-1.41-.07-.13-.27-.2-.57-.35Z"/>
     </svg>
@@ -190,7 +263,7 @@
   <div class="chat-widget" aria-hidden="true">
     <header class="chat-header">
       <img src="img/robot-assistant.svg" alt="">
-      <strong>Asistente Estacion</strong>
+      <strong>Asistente Estación</strong>
       <button class="chat-close" type="button" aria-label="Cerrar chat">x</button>
     </header>
     <div class="chat-body">
@@ -198,6 +271,7 @@
       <div class="chat-quick">
         <button class="quick" type="button" data-msg="Consultar horarios">Horarios</button>
         <button class="quick" type="button" data-msg="Ver ramales">Ramales</button>
+        <button class="quick" type="button" data-msg="Ver mapa de terminal">Mapa</button>
         <button class="quick" type="button" data-msg="Contactarme por WhatsApp">WhatsApp</button>
       </div>
     </div>
@@ -227,12 +301,15 @@
         if (value.includes('whatsapp')) {
           addMessage('Te abrimos WhatsApp para seguir la consulta con Trackline.');
           setTimeout(function(){ window.open(document.querySelector('.whatsapp-float').href, '_blank'); }, 500);
+        } else if (value.includes('mapa') || value.includes('baño') || value.includes('bano') || value.includes('anden')) {
+          addMessage('En el mapa de la terminal podés ubicar baños, comercios, SUBE, Subte C y sectores de andenes.');
+          document.querySelector('#mapa-terminal')?.scrollIntoView({ behavior: 'smooth' });
         } else if (value.includes('ramal')) {
-          addMessage('Podes elegir La Plata, Alejandro Korn, Ezeiza / Glew o Bosques desde el menu Ramales.');
+          addMessage('Podés elegir La Plata, Alejandro Korn, Ezeiza / Glew o Bosques desde el menú Ramales.');
         } else if (value.includes('horario')) {
-          addMessage('En Horarios podes filtrar por ramal, origen y destino.');
+          addMessage('En Horarios podés filtrar por ramal, origen y destino.');
         } else {
-          addMessage('Puedo orientarte con horarios, ramales, servicios de la estacion o contacto por WhatsApp.');
+          addMessage('Puedo orientarte con horarios, ramales, mapa de la estación o contacto por WhatsApp.');
         }
       }
       function send(text) {
@@ -246,13 +323,61 @@
         launch.addEventListener('click', function(){
           widget.classList.add('open');
           widget.setAttribute('aria-hidden', 'false');
-          if (!messages.children.length) addMessage('Hola, soy el asistente de Estacion Constitucion. ¿Que necesitas consultar?');
+          if (!messages.children.length) addMessage('Hola, soy el asistente de Estación Constitución. ¿Qué necesitás consultar?');
         });
       }
       if (closeBtn && widget) closeBtn.addEventListener('click', function(){ widget.classList.remove('open'); widget.setAttribute('aria-hidden', 'true'); });
       if (sendBtn) sendBtn.addEventListener('click', function(){ send(); });
       if (input) input.addEventListener('keydown', function(event){ if (event.key === 'Enter') send(); });
       quicks.forEach(function(btn){ btn.addEventListener('click', function(){ send(btn.dataset.msg); }); });
+
+      const searchForm = document.querySelector('#station-search');
+      const searchInput = document.querySelector('#search');
+      const searchResult = document.querySelector('#search-result');
+      const stationAnswers = [
+        { keys: ['baño', 'bano', 'wc'], text: 'Baños públicos: sector de servicios, próximos al corredor central y al ingreso a andenes.' },
+        { keys: ['sube', 'carga'], text: 'Carga SUBE: puntos cercanos a boleterías y máquinas de autoservicio en el hall central.' },
+        { keys: ['la plata', 'plata'], text: 'Ramal La Plata: salida habitual por andenes 1-4. Confirmá plataforma en pantallas.' },
+        { keys: ['korn', 'alejandro'], text: 'Ramal Alejandro Korn: salida habitual por andenes 5-8, vía Temperley.' },
+        { keys: ['ezeiza', 'glew'], text: 'Ramal Ezeiza / Glew: salida habitual por andenes 9-12. Hay demoras informadas.' },
+        { keys: ['bosques', 'gutierrez', 'gutiérrez'], text: 'Ramal Bosques / Gutiérrez: salida habitual por andenes 13-16.' },
+        { keys: ['comercio', 'cafeteria', 'cafetería', 'kiosco'], text: 'Comercios y cafeterías: ubicados en el perímetro del hall y junto a accesos principales.' },
+        { keys: ['subte', 'combinacion', 'combinación'], text: 'Combinación Subte C: acceso desde el vestíbulo principal hacia el centro y Retiro.' }
+      ];
+      if (searchForm && searchInput && searchResult) {
+        searchForm.addEventListener('submit', function(event){
+          event.preventDefault();
+          const query = searchInput.value.trim().toLowerCase();
+          const match = stationAnswers.find(function(item){
+            return item.keys.some(function(key){ return query.includes(key); });
+          });
+          searchResult.textContent = match ? match.text : 'Podés buscar baños, SUBE, comercios, subte o un ramal como La Plata, Ezeiza, Korn o Bosques.';
+          searchResult.classList.remove('hidden');
+        });
+      }
+
+      const mapPoints = document.querySelectorAll('.map-point');
+      const mapTitle = document.querySelector('#map-detail-title');
+      const mapCopy = document.querySelector('#map-detail-copy');
+      const mapFilters = document.querySelectorAll('.terminal-filter');
+      mapPoints.forEach(function(point){
+        point.addEventListener('click', function(){
+          mapPoints.forEach(function(item){ item.classList.remove('is-active'); });
+          point.classList.add('is-active');
+          if (mapTitle) mapTitle.textContent = point.dataset.title;
+          if (mapCopy) mapCopy.textContent = point.dataset.detail;
+        });
+      });
+      mapFilters.forEach(function(filter){
+        filter.addEventListener('click', function(){
+          const selected = filter.dataset.filter;
+          mapFilters.forEach(function(item){ item.classList.remove('is-active', 'bg-brand', 'text-white'); });
+          filter.classList.add('is-active');
+          mapPoints.forEach(function(point){
+            point.classList.toggle('is-hidden', selected !== 'todos' && point.dataset.type !== selected);
+          });
+        });
+      });
     })();
   </script>
 </body>

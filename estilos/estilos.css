@@ -44,6 +44,94 @@ input {
   font: inherit;
 }
 
+.terminal-map {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  border: 1px solid #dbe3ef;
+  border-radius: 24px;
+  background:
+    linear-gradient(90deg, rgba(0, 82, 155, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0, 82, 155, 0.08) 1px, transparent 1px),
+    #f8fafc;
+  background-size: 48px 48px;
+}
+
+.map-zone {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.map-hall {
+  left: 7%;
+  top: 18%;
+  width: 36%;
+  height: 34%;
+}
+
+.map-platforms {
+  right: 7%;
+  top: 15%;
+  width: 38%;
+  height: 52%;
+}
+
+.map-access {
+  left: 10%;
+  bottom: 9%;
+  width: 74%;
+  height: 18%;
+}
+
+.map-point {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 3px solid #ffffff;
+  border-radius: 999px;
+  background: #00529b;
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.22);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 900;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s ease, background 0.18s ease, opacity 0.18s ease;
+}
+
+.map-point:hover,
+.map-point.is-active {
+  background: #003b72;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.map-point.is-hidden {
+  opacity: 0.18;
+}
+
+.terminal-filter {
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.terminal-filter.is-active {
+  border-color: #00529b;
+  background: #00529b;
+  color: #ffffff;
+}
+
 .whatsapp-float,
 .chat-launch {
   position: fixed;
@@ -229,5 +317,19 @@ input {
     right: 10px;
     bottom: 70px;
     width: min(300px, calc(100vw - 20px));
+  }
+
+  .terminal-map {
+    min-height: 300px;
+  }
+
+  .map-point {
+    width: 38px;
+    height: 38px;
+    font-size: 0.7rem;
+  }
+
+  .map-zone {
+    font-size: 0.68rem;
   }
 }
