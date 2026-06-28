@@ -547,7 +547,7 @@ input {
   }
 
   .terminal-map {
-    min-height: 330px;
+    min-height: 640px;
   }
 
   .map-point {
@@ -560,9 +560,18 @@ input {
     font-size: 0.68rem;
   }
 
+  .map-shops {
+    left: 5%;
+    top: 4%;
+    width: 90%;
+    height: 12%;
+  }
+
   .map-shop-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: 34%;
+    left: 8%;
+    top: 7%;
+    width: 84%;
   }
 
   .map-shop-row span {
@@ -571,8 +580,107 @@ input {
   }
 
   .map-restroom {
+    left: 36%;
+    top: 49%;
+    bottom: auto;
     width: 42px;
     height: 34px;
     font-size: 0.72rem;
+  }
+
+  .map-hall {
+    left: 5%;
+    top: 21%;
+    width: 46%;
+    height: 22%;
+  }
+
+  .map-services {
+    left: 5%;
+    top: 47%;
+    bottom: auto;
+    width: 42%;
+    height: 13%;
+  }
+
+  .map-platforms {
+    left: 5%;
+    right: auto;
+    top: 63%;
+    width: 90%;
+    height: auto;
+    min-height: 210px;
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .platform-title {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+
+  .platform-list {
+    gap: 7px;
+  }
+
+  .platform-row {
+    grid-template-columns: 48px minmax(0, 1fr);
+    min-height: 38px;
+    padding: 7px;
+  }
+
+  .platform-row strong {
+    min-height: 28px;
+    font-size: 0.72rem;
+  }
+
+  .platform-row span {
+    font-size: 0.64rem;
+    line-height: 1.18;
+  }
+
+  .map-access {
+    left: 5%;
+    bottom: 3%;
+    width: 90%;
+    height: 7%;
+  }
+
+  .map-tracks {
+    right: 8%;
+    top: auto;
+    bottom: 5%;
+    width: 84%;
+    height: 6%;
+  }
+
+  .map-point-info {
+    left: 48%;
+    top: 29%;
+  }
+
+  .map-point-wc {
+    left: 43%;
+    top: 49%;
+  }
+
+  .map-point-platforms {
+    left: 88%;
+    top: 68%;
+  }
+
+  .map-point-shops {
+    left: 88%;
+    top: 12%;
+  }
+
+  .map-point-sube {
+    left: 16%;
+    top: 57%;
+  }
+
+  .map-point-subte {
+    left: 50%;
+    top: 92%;
   }
 }
