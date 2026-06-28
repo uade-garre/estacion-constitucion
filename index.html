@@ -142,12 +142,12 @@
             <span>Café</span><span>Kiosco</span><span>Farmacia</span><span>Comidas</span>
           </div>
           <div class="map-restroom" aria-hidden="true">WC</div>
-          <button class="map-point is-active" type="button" style="left: 25%; top: 35%;" data-type="servicio" data-title="Punto de información" data-detail="Orientación al pasajero, reclamos y consultas generales en el hall central.">i</button>
-          <button class="map-point" type="button" style="left: 34%; top: 68%;" data-type="servicio" data-title="Baños públicos" data-detail="Baños ubicados cerca del corredor central y próximos al sector de andenes.">WC</button>
-          <button class="map-point" type="button" style="left: 72%; top: 46%;" data-type="anden" data-title="Andenes principales" data-detail="Sectores de salida de ramales La Plata, Ezeiza, Alejandro Korn y Bosques.">A</button>
-          <button class="map-point" type="button" style="left: 24%; top: 17%;" data-type="interes" data-title="Comercios y cafeterías" data-detail="Locales de comida, kioscos y cafeterías para compras rápidas antes del viaje.">$</button>
-          <button class="map-point" type="button" style="left: 20%; top: 73%;" data-type="interes" data-title="Carga SUBE" data-detail="Puntos de carga y consulta de saldo SUBE próximos a boleterías.">S</button>
-          <button class="map-point" type="button" style="left: 48%; top: 85%;" data-type="servicio" data-title="Combinación Subte C" data-detail="Conexión directa hacia Subte C y salida al entorno urbano de Constitución.">C</button>
+          <button class="map-point is-active" type="button" style="left: 25%; top: 35%;" data-location="informacion" data-type="servicio" data-title="Punto de información" data-detail="Orientación al pasajero, reclamos y consultas generales en el hall central.">i</button>
+          <button class="map-point" type="button" style="left: 34%; top: 68%;" data-location="banos" data-type="servicio" data-title="Baños públicos" data-detail="Baños ubicados cerca del corredor central y próximos al sector de andenes.">WC</button>
+          <button class="map-point" type="button" style="left: 72%; top: 46%;" data-location="andenes" data-type="anden" data-title="Andenes principales" data-detail="Sectores de salida de ramales La Plata, Ezeiza, Alejandro Korn y Bosques.">A</button>
+          <button class="map-point" type="button" style="left: 24%; top: 17%;" data-location="comercios" data-type="interes" data-title="Comercios y cafeterías" data-detail="Locales de comida, kioscos y cafeterías para compras rápidas antes del viaje.">$</button>
+          <button class="map-point" type="button" style="left: 20%; top: 73%;" data-location="sube" data-type="interes" data-title="Carga SUBE" data-detail="Puntos de carga y consulta de saldo SUBE próximos a boleterías.">S</button>
+          <button class="map-point" type="button" style="left: 48%; top: 85%;" data-location="subte" data-type="servicio" data-title="Combinación Subte C" data-detail="Conexión directa hacia Subte C y salida al entorno urbano de Constitución.">C</button>
         </div>
       </article>
       <aside class="rounded-[28px] border border-slate-200 bg-slate-950 p-6 text-white shadow-soft">
@@ -347,15 +347,35 @@
       const searchInput = document.querySelector('#search');
       const searchResult = document.querySelector('#search-result');
       const stationAnswers = [
-        { keys: ['baño', 'bano', 'wc'], text: 'Baños públicos: sector de servicios, próximos al corredor central y al ingreso a andenes.' },
-        { keys: ['sube', 'carga'], text: 'Carga SUBE: puntos cercanos a boleterías y máquinas de autoservicio en el hall central.' },
-        { keys: ['la plata', 'plata'], text: 'Ramal La Plata: salida habitual por andenes 1-4. Confirmá plataforma en pantallas.' },
-        { keys: ['korn', 'alejandro'], text: 'Ramal Alejandro Korn: salida habitual por andenes 5-8, vía Temperley.' },
-        { keys: ['ezeiza', 'glew'], text: 'Ramal Ezeiza / Glew: salida habitual por andenes 9-12. Hay demoras informadas.' },
-        { keys: ['bosques', 'gutierrez', 'gutiérrez'], text: 'Ramal Bosques / Gutiérrez: salida habitual por andenes 13-16.' },
-        { keys: ['comercio', 'cafeteria', 'cafetería', 'kiosco'], text: 'Comercios y cafeterías: ubicados en el perímetro del hall y junto a accesos principales.' },
-        { keys: ['subte', 'combinacion', 'combinación'], text: 'Combinación Subte C: acceso desde el vestíbulo principal hacia el centro y Retiro.' }
+        { keys: ['baño', 'bano', 'wc'], text: 'Baños públicos: sector de servicios, próximos al corredor central y al ingreso a andenes.', target: 'banos' },
+        { keys: ['sube', 'carga'], text: 'Carga SUBE: puntos cercanos a boleterías y máquinas de autoservicio en el hall central.', target: 'sube' },
+        { keys: ['la plata', 'plata'], text: 'Ramal La Plata: salida habitual por andenes 1-4. Confirmá plataforma en pantallas.', target: 'andenes' },
+        { keys: ['korn', 'alejandro'], text: 'Ramal Alejandro Korn: salida habitual por andenes 5-8, vía Temperley.', target: 'andenes' },
+        { keys: ['ezeiza', 'glew'], text: 'Ramal Ezeiza / Glew: salida habitual por andenes 9-12. Hay demoras informadas.', target: 'andenes' },
+        { keys: ['bosques', 'gutierrez', 'gutiérrez'], text: 'Ramal Bosques / Gutiérrez: salida habitual por andenes 13-16.', target: 'andenes' },
+        { keys: ['comercio', 'cafeteria', 'cafetería', 'kiosco'], text: 'Comercios y cafeterías: ubicados en el perímetro del hall y junto a accesos principales.', target: 'comercios' },
+        { keys: ['subte', 'combinacion', 'combinación'], text: 'Combinación Subte C: acceso desde el vestíbulo principal hacia el centro y Retiro.', target: 'subte' }
       ];
+      function selectMapPoint(target) {
+        const point = target ? document.querySelector('.map-point[data-location="' + target + '"]') : null;
+        if (point) point.click();
+        document.querySelector('#mapa-terminal')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      function renderSearchResult(match) {
+        searchResult.textContent = '';
+        const copy = document.createElement('span');
+        copy.textContent = match ? match.text : 'Podés buscar baños, SUBE, comercios, subte o un ramal como La Plata, Ezeiza, Korn o Bosques.';
+        const link = document.createElement('a');
+        link.href = '#mapa-terminal';
+        link.className = 'mt-3 inline-flex items-center rounded-full bg-brand px-4 py-2 text-xs font-semibold text-white transition hover:bg-brand-dark';
+        link.textContent = match ? 'Ver resultado en el mapa' : 'Ver mapa de la terminal';
+        if (match) link.dataset.mapTarget = match.target;
+        link.addEventListener('click', function(event){
+          event.preventDefault();
+          selectMapPoint(link.dataset.mapTarget);
+        });
+        searchResult.append(copy, document.createElement('br'), link);
+      }
       if (searchForm && searchInput && searchResult) {
         searchForm.addEventListener('submit', function(event){
           event.preventDefault();
@@ -363,7 +383,7 @@
           const match = stationAnswers.find(function(item){
             return item.keys.some(function(key){ return query.includes(key); });
           });
-          searchResult.textContent = match ? match.text : 'Podés buscar baños, SUBE, comercios, subte o un ramal como La Plata, Ezeiza, Korn o Bosques.';
+          renderSearchResult(match);
           searchResult.classList.remove('hidden');
         });
       }
