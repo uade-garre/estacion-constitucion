@@ -1,158 +1,170 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Metadatos, titulo y enlaces a hojas de estilo de la pagina. -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estaci&oacute;n Constituci&oacute;n | Trackline Studio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilos/estilos.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estación Constitución</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: '#00529B',
+                dark: '#003b72'
+              },
+              surface: '#f9f9f9',
+              'surface-muted': '#e2e2e2'
+            },
+            boxShadow: {
+              soft: '0 18px 50px rgba(15, 23, 42, 0.12)'
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif']
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="estilos/estilos.css" />
 </head>
-<body class="station-page">
-    <!-- Encabezado con marca y navegacion principal. -->
-    <header class="site-header">
-        <div class="site-header-inner">
-            <a href="https://uade-garre.github.io/consultora/" class="logo">TRACKLINE STUDIO</a>
-            <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu">
-                <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <rect width="22" height="2" rx="1" fill="currentColor"/>
-                    <rect y="6" width="22" height="2" rx="1" fill="currentColor"/>
-                    <rect y="12" width="22" height="2" rx="1" fill="currentColor"/>
-                </svg>
-            </button>
-            <nav class="site-nav" id="site-nav" aria-label="Principal">
-                <a href="https://uade-garre.github.io/consultora/">Inicio</a>
-                <button class="menu-link menu-trigger" type="button" data-menu="servicios" aria-expanded="false">Servicios</button>
-                <a href="https://uade-garre.github.io/consultora/alianzas.html">Alianzas</a>
-                <button class="menu-link menu-trigger active" type="button" data-menu="casos" aria-expanded="false" aria-current="page">Casos</button>
-                <a href="https://uade-garre.github.io/consultora/contacto.html">Contacto</a>
-                <button class="menu-link menu-trigger" type="button" data-menu="nosotros" aria-expanded="false">Nosotros</button>
-            </nav>
-            <div class="mega-menu" aria-hidden="true">
-                <div class="mega-panel" data-panel="servicios">
-                    <span class="mega-kicker">Servicios</span>
-                    <a href="https://uade-garre.github.io/consultora/servicios.html">Consultoria UX/UI</a>
-                    <a href="https://uade-garre.github.io/consultora/servicios.html">Desarrollo web</a>
-                    <a href="https://uade-garre.github.io/consultora/servicios.html">Automatizacion</a>
-                    <a href="https://uade-garre.github.io/consultora/servicios.html">Datos y rendimiento</a>
-                </div>
-                <div class="mega-panel" data-panel="casos">
-                    <span class="mega-kicker">Resultados</span>
-                    <a href="index.html">Estaci&oacute;n Constituci&oacute;n</a>
-                    <a href="https://uade-garre.github.io/consultora/casos_de_exito.html">Emprendimiento tecnologico</a>
-                    <a href="https://uade-garre.github.io/consultora/casos_de_exito.html">Empresa corporativa</a>
-                </div>
-                <div class="mega-panel" data-panel="nosotros">
-                    <span class="mega-kicker">Trackline</span>
-                    <a href="https://uade-garre.github.io/consultora/sobre_nosotros.html">Equipo y enfoque</a>
-                    <a href="https://uade-garre.github.io/consultora/sobre_nosotros.html">Valores</a>
-                    <a href="https://uade-garre.github.io/consultora/alianzas.html">Alianzas</a>
-                    <a href="https://uade-garre.github.io/consultora/contacto.html">Hablemos</a>
-                </div>
-            </div>
+<body class="bg-surface text-slate-900 antialiased">
+  <div class="hero-bg relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.18),_transparent_35%)] pointer-events-none"></div>
+    <header class="fixed inset-x-0 top-0 z-30 border-b border-slate-200 bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 px-6 py-4 lg:px-8">
+        <a href="index.html" class="inline-flex items-center gap-3 text-brand-dark">
+          <span class="text-sm font-semibold tracking-[0.24em] uppercase">ESTACIÓN CONSTITUCIÓN</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600">
+          <a href="horarios.html" class="hover:text-slate-900">Horarios</a>
+          <a href="ramales.html" class="hover:text-slate-900">Ramales</a>
+          <a href="servicios.html" class="hover:text-slate-900">Servicios</a>
+          <a href="noticias.html" class="hover:text-slate-900">Noticias</a>
+          <a href="faq.html" class="hover:text-slate-900">Preguntas frecuentes</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="#" class="hidden sm:inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">Mi cuenta</a>
         </div>
+      </div>
     </header>
-    <!-- Contenido principal de la pagina. -->
-    <main class="page-shell">
-        <div class="container">
-            <section class="station-hero">
-                <div class="station-hero-copy">
-                    <span class="eyebrow">Caso ferroviario</span>
-                    <h1>Estaci&oacute;n Constituci&oacute;n como hub digital de l&iacute;neas.</h1>
-                    <p>
-                        Una portada central para organizar recorridos, accesos, servicios y derivar a cada
-                        l&iacute;nea de tren con una navegaci&oacute;n clara desde la web de la consultora.
-                    </p>
-                    <div class="station-status" aria-label="Resumen de la estacion">
-                        <span><strong>4</strong> l&iacute;neas conectadas</span>
-                        <span><strong>24 h</strong> informaci&oacute;n disponible</span>
-                        <span><strong>1</strong> punto de entrada</span>
-                    </div>
-                </div>
-                <div class="station-board" aria-label="Visual de andenes de Estacion Constitucion">
-                    <span class="platform-line"></span>
-                    <span class="platform-line"></span>
-                    <span class="platform-line"></span>
-                    <span class="platform-line"></span>
-                    <span class="train-marker"></span>
-                    <div class="station-label">
-                        <span>Constituci&oacute;n</span>
-                        <span>Andenes</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-block reveal-on-scroll" aria-labelledby="lineas-title">
-                <div class="section-header">
-                    <span class="eyebrow">L&iacute;neas</span>
-                    <h2 id="lineas-title">Accesos principales desde Constituci&oacute;n.</h2>
-                    <p>Estos accesos quedan listos para integrar las p&aacute;ginas de cada recorrido.</p>
-                </div>
-                <div class="line-card-grid">
-                    <a class="line-card" style="--line-color: #65d6df" href="../lineas/roca-gutierrez/index.html">
-                        <span>
-                            <small>L&iacute;nea Roca</small>
-                            <h2>Roca - Guti&eacute;rrez</h2>
-                            <p>Base preparada para sumar la p&aacute;gina existente del ramal.</p>
-                        </span>
-                        <strong>Ver l&iacute;nea</strong>
-                    </a>
-                    <a class="line-card" style="--line-color: #f2c14e" href="../lineas/roca-la-plata.html">
-                        <span>
-                            <small>L&iacute;nea Roca</small>
-                            <h2>Roca - La Plata</h2>
-                            <p>Informaci&oacute;n de estaciones, combinaciones y servicios.</p>
-                        </span>
-                        <strong>Ver l&iacute;nea</strong>
-                    </a>
-                    <a class="line-card" style="--line-color: #ef476f" href="../lineas/roca-ezeiza.html">
-                        <span>
-                            <small>L&iacute;nea Roca</small>
-                            <h2>Roca - Ezeiza</h2>
-                            <p>Ficha inicial para completar recorridos y horarios.</p>
-                        </span>
-                        <strong>Ver l&iacute;nea</strong>
-                    </a>
-                    <a class="line-card" style="--line-color: #2ec4b6" href="../lineas/roca-bosques.html">
-                        <span>
-                            <small>L&iacute;nea Roca</small>
-                            <h2>Roca - Bosques</h2>
-                            <p>Secci&oacute;n lista para sumar detalle operativo del ramal.</p>
-                        </span>
-                        <strong>Ver l&iacute;nea</strong>
-                    </a>
-                </div>
-            </section>
-
-            <section class="station-feature-grid reveal-on-scroll" aria-label="Contenido de la estacion">
-                <article class="station-feature">
-                    <h2>Servicios</h2>
-                    <p>Boleter&iacute;as, atenci&oacute;n, accesos y puntos de orientaci&oacute;n para pasajeros.</p>
-                </article>
-                <article class="station-feature">
-                    <h2>Conexiones</h2>
-                    <p>V&iacute;nculos con subte, colectivos y recorridos peatonales cercanos.</p>
-                </article>
-                <article class="station-feature">
-                    <h2>Experiencia</h2>
-                    <p>Una interfaz pensada para encontrar r&aacute;pido la l&iacute;nea o ramal necesario.</p>
-                </article>
-            </section>
+    <div class="relative z-10 pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24">
+      <div class="mx-auto max-w-4xl px-6 lg:px-8">
+        <p class="text-sm uppercase tracking-[0.26em] text-slate-100/80">Estación Constitución</p>
+        <h1 class="mt-4 text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight text-white">Estación Constitución: <span class="block">El corazón de la Línea Roca</span></h1>
+        <p class="mt-6 max-w-2xl text-base sm:text-lg leading-8 text-slate-100/85">La terminal de Constitución combina arquitectura histórica, un flujo diario constante de trenes y un servicio pensado para el viajero urbano. Información clara y actualizada al alcance de tu mano.</p>
+      </div>
+      <form class="mt-10 max-w-3xl mx-auto px-6 lg:px-8">
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <label class="sr-only" for="search">Buscar horarios y estados</label>
+          <input id="search" type="search" placeholder="Horarios y Estados del Servicio" class="min-w-0 flex-1 rounded-full border border-white/30 bg-white/95 px-5 py-4 text-slate-900 shadow-[0_16px_40px_rgba(15,23,42,0.12)] focus:border-white focus:outline-none focus:ring-2 focus:ring-white/40" />
+          <button type="submit" class="inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-brand shadow-lg shadow-slate-900/10 transition hover:bg-slate-100">Buscar</button>
         </div>
-    </main>
-    <!-- Pie de pagina con creditos y enlaces secundarios. -->
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <p>Copyright 2026 - Trackline Studio - Todos los derechos reservados</p>
-            <div class="footer-bottom">
-                <a href="https://uade-garre.github.io/consultora/">Inicio</a> |
-                <a href="https://uade-garre.github.io/consultora/mapa_sitio.html">Mapa del sitio</a>
+      </form>
+    </div>
+  </div>
+
+  <main class="relative z-10 max-w-7xl mx-auto px-6 pb-16 lg:px-8">
+    <section class="mt-16 grid gap-8 lg:grid-cols-4">
+      <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+        <a href="https://camisahores.github.io/Roca-Constitucion-LaPlata/" target="_blank" rel="noreferrer noopener" class="block h-full">
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Ramal</p>
+          <h2 class="mt-3 text-xl font-semibold text-slate-900">La Plata</h2>
+          <span class="mt-5 inline-flex items-center rounded-full bg-emerald-100 px-3 py-1.5 text-sm font-semibold text-emerald-700">Normal</span>
+        </a>
+      </article>
+      <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+        <a href="https://gianluca-uade.github.io/roca-constitucion-korn/" target="_blank" rel="noreferrer noopener" class="block h-full">
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Ramal</p>
+          <h2 class="mt-3 text-xl font-semibold text-slate-900">Alejandro Korn</h2>
+          <span class="mt-5 inline-flex items-center rounded-full bg-emerald-100 px-3 py-1.5 text-sm font-semibold text-emerald-700">Normal</span>
+        </a>
+      </article>
+      <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+        <a href="https://tdejesus01.github.io/Actividad2-LineaRoca-Ezeiza/" target="_blank" rel="noreferrer noopener" class="block h-full">
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Ramal</p>
+          <h2 class="mt-3 text-xl font-semibold text-slate-900">Ezeiza / Glew</h2>
+          <span class="mt-5 inline-flex items-center rounded-full bg-rose-100 px-3 py-1.5 text-sm font-semibold text-rose-700">Demoras</span>
+        </a>
+      </article>
+      <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+        <a href="https://uade-garre.github.io/lineas/roca-gutierrez/" target="_blank" rel="noreferrer noopener" class="block h-full">
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Ramal</p>
+          <h2 class="mt-3 text-xl font-semibold text-slate-900">Bosques</h2>
+          <span class="mt-5 inline-flex items-center rounded-full bg-emerald-100 px-3 py-1.5 text-sm font-semibold text-emerald-700">Normal</span>
+        </a>
+      </article>
+    </section>
+
+    <section class="mt-10 grid gap-6 lg:grid-cols-[1.7fr_1fr]">
+      <article class="rounded-[28px] border border-slate-200 bg-white shadow-soft overflow-hidden">
+        <div class="relative h-80 overflow-hidden bg-slate-950">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmMEzh7pVIha4bbWbYIyhN5Qyty1bSYGC8TTRR1A-ZIw&s=10" alt="Interior estación histórica" class="h-full w-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent"></div>
+          <span class="absolute left-6 bottom-6 inline-flex rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-slate-900">Reseña Histórica</span>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-semibold text-slate-900">Monumento Histórico Nacional</h3>
+          <p class="mt-4 text-base leading-7 text-slate-700">Inaugurada en su forma actual a finales del siglo XIX, la terminal de Constitución es uno de los monumentos arquitectónicos más significativos de Argentina. Su imponente fachada y el gran vestíbulo de pasajeros reflejan la era de oro del ferrocarril en el país.</p>
+          <a href="#" class="mt-6 inline-flex items-center text-sm font-semibold text-brand hover:text-brand-dark">Seguir leyendo →</a>
+        </div>
+      </article>
+      <div class="space-y-6">
+        <aside class="rounded-[28px] border border-slate-200 bg-brand text-white shadow-soft p-8">
+          <div class="mb-6 flex flex-col gap-4 rounded-2xl bg-white/10 p-5 sm:flex-row sm:items-start">
+            <span class="rounded-2xl bg-white/15 p-3 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M9 2a1 1 0 0 0-1 1v1H6.5A2.5 2.5 0 0 0 4 6.5v11A2.5 2.5 0 0 0 6.5 20H9v1a1 1 0 1 0 2 0v-1h2v1a1 1 0 1 0 2 0v-1h2.5A2.5 2.5 0 0 0 20 17.5v-11A2.5 2.5 0 0 0 17.5 4H14V3a1 1 0 0 0-1-1H9Zm1 4h4v1H10V6Zm7.5 2a.5.5 0 0 1 .5.5V9h-15v-.5a.5.5 0 0 1 .5-.5h14ZM5 10h14v7.5a.5.5 0 0 1-.5.5H5.5a.5.5 0 0 1-.5-.5V10Z"/></svg>
+            </span>
+            <div>
+              <p class="text-sm uppercase tracking-[0.24em] text-slate-200/80">Conexiones Subte C</p>
+              <p class="mt-2 text-sm leading-6 text-white/90">Acceso directo desde el vestíbulo principal hacia Retiro y el centro de la ciudad.</p>
+              <a href="servicios.html" class="mt-3 inline-flex text-sm font-semibold text-white underline decoration-white/40 hover:text-slate-100">Ver servicios</a>
             </div>
+          </div>
+          <div class="mb-6 flex flex-col gap-4 rounded-2xl bg-white/10 p-5 sm:flex-row sm:items-start">
+            <span class="rounded-2xl bg-white/15 p-3 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M4 5h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v9h14V7H5Zm3 7H7v-2h1v2Zm0-3H7V9h1v2Zm3 3h-1v-2h1v2Zm0-3h-1V9h1v2Zm3 3h-1v-2h1v2Zm0-3h-1V9h1v2Z"/></svg>
+            </span>
+            <div>
+              <p class="text-sm uppercase tracking-[0.24em] text-slate-200/80">Transbordo Colectivos</p>
+              <p class="mt-2 text-sm leading-6 text-white/90">Terminal de ómnibus urbanos conectada con más de 30 líneas de transporte.</p>
+              <a href="servicios.html" class="mt-3 inline-flex text-sm font-semibold text-white underline decoration-white/40 hover:text-slate-100">Ver servicios</a>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 rounded-2xl bg-white/10 p-5 sm:flex-row sm:items-start">
+            <span class="rounded-2xl bg-white/15 p-3 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M5 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5Zm1 2h12v12H6V6Zm3 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm5 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm-5 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm5 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+            </span>
+            <div>
+              <p class="text-sm uppercase tracking-[0.24em] text-slate-200/80">Servicios Internos</p>
+              <p class="mt-2 text-sm leading-6 text-white/90">Locales comerciales, cafeterías, baños públicos y puntos de carga SUBE.</p>
+              <a href="servicios.html" class="mt-3 inline-flex text-sm font-semibold text-white underline decoration-white/40 hover:text-slate-100">Ver servicios</a>
+            </div>
+          </div>
+        </aside>
+        <section class="rounded-[28px] border border-slate-200 bg-white shadow-soft p-6">
+          <h4 class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Notificaciones</h4>
+          <p class="mt-4 text-base leading-7 text-slate-700">Recibí alertas en tu celular</p>
+          <button class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">Activar notificaciones</button>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white py-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <p class="text-sm text-slate-600">© 2026 Diseño y desarrollo web - grupo 6</p>
+        <div class="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+          <a href="#" class="hover:text-slate-900">Política de privacidad</a>
+          <a href="#" class="hover:text-slate-900">Términos del servicio</a>
+          <a href="#" class="hover:text-slate-900">Accesibilidad</a>
+          <a href="#" class="hover:text-slate-900">Transparencia</a>
+          <a href="#" class="hover:text-slate-900">Contacto</a>
         </div>
-    </footer>
-    <!-- Scripts que activan la interaccion de la pagina. -->
-    <script src="js/app.js"></script>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

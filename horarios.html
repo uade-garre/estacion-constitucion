@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horarios Línea Roca | Estación Constitución</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#00529B',
+              dark: '#003b72'
+            },
+            surface: '#f9f9f9',
+            'surface-muted': '#e2e2e2'
+          },
+          boxShadow: {
+            soft: '0 18px 50px rgba(15, 23, 42, 0.12)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="estilos/estilos.css" />
+</head>
+<body class="bg-surface text-slate-900 antialiased">
+  <header class="fixed inset-x-0 top-0 z-30 border-b border-slate-200 bg-white shadow-sm">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4 lg:px-8">
+      <a href="index.html" class="inline-flex items-center gap-3 text-brand-dark">
+        <span class="text-sm font-semibold tracking-[0.24em] uppercase">ESTACIÓN CONSTITUCIÓN</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600">
+        <a href="horarios.html" class="text-slate-900 font-semibold" aria-current="page">Horarios</a>
+        <a href="ramales.html" class="hover:text-slate-900">Ramales</a>
+        <a href="servicios.html" class="hover:text-slate-900">Servicios</a>
+        <a href="noticias.html" class="hover:text-slate-900">Noticias</a>
+        <a href="faq.html" class="hover:text-slate-900">Preguntas frecuentes</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#" class="hidden sm:inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">Mi cuenta</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20 mx-auto max-w-7xl px-6 py-10 lg:px-8">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand">Línea Roca</p>
+        <h1 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Horarios Línea Roca</h1>
+        <p class="mt-3 max-w-2xl text-base leading-7 text-slate-600">Actualizaciones en tiempo real e itinerarios de temporada para salidas desde Constitución hacia La Plata.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <button class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">Horario PDF</button>
+        <button class="inline-flex items-center justify-center rounded-full bg-brand px-4 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">Mapa de la red</button>
+      </div>
+    </div>
+
+    <div class="mt-8 grid gap-6 xl:grid-cols-[280px_minmax(0,1fr)_320px]">
+      <aside class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+        <h2 class="text-lg font-semibold text-slate-900">Filtros</h2>
+        <div class="mt-6 space-y-6">
+          <div class="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Día de la semana</p>
+            <div class="space-y-2 text-sm text-slate-700">
+              <label class="flex items-center gap-3"><input type="radio" name="day" checked class="h-4 w-4 text-brand" /><span>Días hábiles (Lun–Vie)</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="day" class="h-4 w-4 text-brand" /><span>Sábado</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="day" class="h-4 w-4 text-brand" /><span>Domingos y feriados</span></label>
+            </div>
+          </div>
+          <div class="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Ramal</p>
+            <div class="space-y-2 text-sm text-slate-700">
+              <label class="flex items-center gap-3"><input type="radio" name="branch" value="all" checked class="h-4 w-4 text-brand" /><span>Todos los ramales</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="branch" value="La Plata" class="h-4 w-4 text-brand" /><span>La Plata</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="branch" value="Ezeiza" class="h-4 w-4 text-brand" /><span>Ezeiza</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="branch" value="Alejandro Korn" class="h-4 w-4 text-brand" /><span>Alejandro Korn</span></label>
+              <label class="flex items-center gap-3"><input type="radio" name="branch" value="Bosques" class="h-4 w-4 text-brand" /><span>Bosques</span></label>
+            </div>
+          </div>
+          <div class="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Origen</p>
+            <select class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20">
+              <option>Constitución</option>
+              <option>La Plata</option>
+              <option>Berazategui</option>
+            </select>
+          </div>
+          <div class="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Horario actual</p>
+            <div class="grid gap-3 sm:grid-cols-2">
+              <div class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900">08:00 AM</div>
+              <div class="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900">11:59 PM</div>
+            </div>
+          </div>
+          <div class="rounded-[28px] bg-brand text-white p-5">
+            <p class="text-sm font-semibold">Horario vigente hasta el invierno de 2024.</p>
+            <p class="mt-2 text-sm text-white/80">Tarifas sujetas a saldo SUBE.</p>
+          </div>
+        </div>
+      </aside>
+
+      <section class="space-y-6">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+            <a href="https://camisahores.github.io/Roca-Constitucion-LaPlata/" target="_blank" rel="noreferrer noopener" class="block h-full">
+              <div class="flex items-center gap-3 text-slate-500">
+                <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-brand">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2a2 2 0 0 0-2 2v1H7.75A2.75 2.75 0 0 0 5 7.75v8.5A2.75 2.75 0 0 0 7.75 19h.25v1a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-1h.25A2.75 2.75 0 0 0 19 16.25v-8.5A2.75 2.75 0 0 0 16.25 5H14V4a2 2 0 0 0-2-2Zm0 3h4.25c.414 0 .75.336.75.75v8.5a.75.75 0 0 1-.75.75H7.75a.75.75 0 0 1-.75-.75v-8.5c0-.414.336-.75.75-.75H12Zm-2 11h4v1h-4v-1Zm0-2h4v1h-4v-1Z"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm uppercase tracking-[0.22em] text-slate-500">La Plata</p>
+                  <p class="mt-2 font-semibold text-slate-900">Normal</p>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+            <a href="https://gianluca-uade.github.io/roca-constitucion-korn/" target="_blank" rel="noreferrer noopener" class="block h-full">
+              <div class="flex items-center gap-3 text-slate-500">
+                <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-brand">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2a2 2 0 0 0-2 2v1H7.75A2.75 2.75 0 0 0 5 7.75v8.5A2.75 2.75 0 0 0 7.75 19h.25v1a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-1h.25A2.75 2.75 0 0 0 19 16.25v-8.5A2.75 2.75 0 0 0 16.25 5H14V4a2 2 0 0 0-2-2Zm0 3h4.25c.414 0 .75.336.75.75v8.5a.75.75 0 0 1-.75.75H7.75a.75.75 0 0 1-.75-.75v-8.5c0-.414.336-.75.75-.75H12Zm-2 11h4v1h-4v-1Zm0-2h4v1h-4v-1Z"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm uppercase tracking-[0.22em] text-slate-500">Alejandro Korn</p>
+                  <p class="mt-2 font-semibold text-slate-900">Normal</p>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+            <a href="https://tdejesus01.github.io/Actividad2-LineaRoca-Ezeiza/" target="_blank" rel="noreferrer noopener" class="block h-full">
+              <div class="flex items-center gap-3 text-slate-500">
+                <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-amber-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 14h-2v-2h2v2Zm0-4h-2V6h2v6Z"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm uppercase tracking-[0.22em] text-slate-500">Ezeiza</p>
+                  <p class="mt-2 font-semibold text-slate-900">Demoras</p>
+                </div>
+              </div>
+            </a>
+          </article>
+          <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+            <a href="https://uade-garre.github.io/lineas/roca-gutierrez/" target="_blank" rel="noreferrer noopener" class="block h-full">
+              <div class="flex items-center gap-3 text-slate-500">
+                <div class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-brand">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2a2 2 0 0 0-2 2v1H7.75A2.75 2.75 0 0 0 5 7.75v8.5A2.75 2.75 0 0 0 7.75 19h.25v1a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-1h.25A2.75 2.75 0 0 0 19 16.25v-8.5A2.75 2.75 0 0 0 16.25 5H14V4a2 2 0 0 0-2-2Zm0 3h4.25c.414 0 .75.336.75.75v8.5a.75.75 0 0 1-.75.75H7.75a.75.75 0 0 1-.75-.75v-8.5c0-.414.336-.75.75-.75H12Zm-2 11h4v1h-4v-1Zm0-2h4v1h-4v-1Z"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm uppercase tracking-[0.22em] text-slate-500">Bosques</p>
+                  <p class="mt-2 font-semibold text-slate-900">Normal</p>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p id="route-label" class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Constitución → La Plata</p>
+                <p id="route-summary" class="mt-2 text-sm text-slate-600">84 salidas diarias</p>
+              </div>
+              <span class="inline-flex items-center rounded-full bg-slate-100 px-3 py-2 text-sm font-semibold text-slate-700">A tiempo</span>
+            </div>
+            <div class="overflow-x-auto rounded-3xl border border-slate-200">
+              <table class="min-w-full w-full table-fixed divide-y divide-slate-200 text-left text-sm break-words">
+                <thead id="timetable-head" class="bg-slate-50 text-slate-700">
+                  <tr>
+                    <th class="px-4 py-4 font-semibold whitespace-normal">Tren</th>
+                    <th class="px-4 py-4 font-semibold whitespace-normal">Dep. Constitución</th>
+                    <th class="px-4 py-4 font-semibold whitespace-normal">Berazategui</th>
+                    <th class="px-4 py-4 font-semibold whitespace-normal">City Bell</th>
+                    <th class="px-4 py-4 font-semibold whitespace-normal">Arr. La Plata</th>
+                    <th class="px-4 py-4 font-semibold whitespace-normal">Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="timetable-body" class="divide-y divide-slate-200 bg-white text-slate-800">
+                  <tr class="hover:bg-slate-50">
+                    <td class="px-4 py-4 font-semibold text-brand break-words">4005</td>
+                    <td class="px-4 py-4 break-words">04:48</td>
+                    <td class="px-4 py-4 break-words">05:42</td>
+                    <td class="px-4 py-4 break-words">06:12</td>
+                    <td class="px-4 py-4 font-semibold break-words">06:26</td>
+                    <td class="px-4 py-4 break-words"><span class="inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">A tiempo</span></td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="px-4 py-4 font-semibold text-brand">4013</td>
+                    <td class="px-4 py-4">05:28</td>
+                    <td class="px-4 py-4">05:45</td>
+                    <td class="px-4 py-4">05:53</td>
+                    <td class="px-4 py-4 font-semibold">06:01</td>
+                    <td class="px-4 py-4"><span class="inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">A tiempo</span></td>
+                  </tr>
+                  <tr class="hover:bg-slate-50 bg-amber-50">
+                    <td class="px-4 py-4 font-semibold text-brand">4021</td>
+                    <td class="px-4 py-4">05:48</td>
+                    <td class="px-4 py-4">06:05</td>
+                    <td class="px-4 py-4">06:13</td>
+                    <td class="px-4 py-4 font-semibold">06:21</td>
+                    <td class="px-4 py-4"><span class="inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700">Demora</span></td>
+                  </tr>
+                  <tr class="hover:bg-slate-50">
+                    <td class="px-4 py-4 font-semibold text-brand">4029</td>
+                    <td class="px-4 py-4">06:08</td>
+                    <td class="px-4 py-4">06:25</td>
+                    <td class="px-4 py-4">06:33</td>
+                    <td class="px-4 py-4 font-semibold">06:41</td>
+                    <td class="px-4 py-4"><span class="inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">A tiempo</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mt-6 flex flex-wrap items-center justify-between gap-3 text-sm text-slate-600">
+              <p>Ver anteriores</p>
+              <div class="flex items-center gap-2">
+                <button class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700">1</button>
+                <button class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-brand text-white">2</button>
+                <button class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700">3</button>
+                <span class="px-2">...</span>
+                <button class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700">14</button>
+              </div>
+              <p>Ver posteriores</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="space-y-6">
+        <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+          <h2 class="text-base font-semibold text-slate-900">Pase Rápido</h2>
+          <p class="mt-3 text-sm leading-6 text-slate-600">Generá tu QR de viaje para el trayecto seleccionado y ahorrá hasta 15 minutos en el molinete.</p>
+        </article>
+        <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+          <h2 class="text-base font-semibold text-slate-900">Información tarifaria</h2>
+          <p class="mt-3 text-sm leading-6 text-slate-600">La tarifa actual para Constitución - La Plata es $340,00 con SUBE registrada.</p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white py-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <p class="text-sm text-slate-600">© 2026 Diseño y desarrollo web - grupo 6</p>
+        <div class="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+          <a href="#" class="hover:text-slate-900">Política de privacidad</a>
+          <a href="#" class="hover:text-slate-900">Términos del servicio</a>
+          <a href="#" class="hover:text-slate-900">Accesibilidad</a>
+          <a href="#" class="hover:text-slate-900">Transparencia</a>
+          <a href="#" class="hover:text-slate-900">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const branchRadios = Array.from(document.querySelectorAll('input[name="branch"]'));
+    const routeLabel = document.getElementById('route-label');
+    const routeSummary = document.getElementById('route-summary');
+    const timetableHead = document.getElementById('timetable-head');
+    const timetableBody = document.getElementById('timetable-body');
+
+    const branchSchedules = {
+      all: {
+        label: 'Todos los ramales',
+        summary: 'Horarios combinados del ramal',
+        stops: ['Tren', 'Dep. Constitución', 'Berazategui', 'City Bell', 'Arr. La Plata', 'Estado'],
+        rows: [
+          {train: '4005', times: ['04:48', '05:42', '06:12', '06:26'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'},
+          {train: '4013', times: ['05:28', '05:45', '05:53', '06:01'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'},
+          {train: '4021', times: ['05:48', '06:05', '06:13', '06:21'], status: 'Demora', badge: 'bg-amber-100 text-amber-700'},
+          {train: '4029', times: ['06:08', '06:25', '06:33', '06:41'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'}
+        ]
+      },
+      'La Plata': {
+        label: 'Constitución → La Plata',
+        summary: '84 salidas diarias',
+        stops: ['Tren', 'Dep. Constitución', 'Berazategui', 'City Bell', 'Arr. La Plata', 'Estado'],
+        rows: [
+          {train: '4005', times: ['04:48', '05:42', '06:12', '06:26'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'},
+          {train: '4013', times: ['05:28', '05:45', '05:53', '06:01'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'},
+          {train: '4021', times: ['05:48', '06:05', '06:13', '06:21'], status: 'Demora', badge: 'bg-amber-100 text-amber-700'},
+          {train: '4029', times: ['06:08', '06:25', '06:33', '06:41'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'}
+        ]
+      },
+      'Ezeiza': {
+        label: 'Constitución → Ezeiza',
+        summary: '26 salidas diarias',
+        stops: ['Tren', 'Dep. Constitución', 'Alejandro Korn', 'Ezeiza', 'Estado'],
+        rows: [
+          {train: '5102', times: ['05:10', '05:45', '06:20'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'},
+          {train: '5116', times: ['06:00', '06:35', '07:10'], status: 'Demora', badge: 'bg-amber-100 text-amber-700'},
+          {train: '5134', times: ['07:10', '07:45', '08:20'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'}
+        ]
+      },
+      'Alejandro Korn': {
+        label: 'Constitución → Alejandro Korn',
+        summary: '17 salidas diarias',
+        stops: ['Tren', 'Dep. Constitución', 'Alejandro Korn', 'Estado'],
+        rows: [
+          {train: '6201', times: ['05:25', '05:58'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'},
+          {train: '6207', times: ['06:15', '06:49'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'},
+          {train: '6219', times: ['07:05', '07:39'], status: 'Demora', badge: 'bg-amber-100 text-amber-700'}
+        ]
+      },
+      'Bosques': {
+        label: 'Constitución → Bosques',
+        summary: '34 salidas diarias',
+        stops: ['Tren', 'Dep. Constitución', 'Bosques', 'Estado'],
+        rows: [
+          {train: '7303', times: ['05:05', '05:55'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'},
+          {train: '7311', times: ['06:00', '06:50'], status: 'Demora', badge: 'bg-amber-100 text-amber-700'},
+          {train: '7327', times: ['07:10', '08:00'], status: 'A tiempo', badge: 'bg-emerald-100 text-emerald-700'}
+        ]
+      }
+    };
+
+    function renderSchedule(branchKey) {
+      const schedule = branchSchedules[branchKey] || branchSchedules.all;
+      routeLabel.textContent = schedule.label;
+      routeSummary.textContent = schedule.summary;
+
+      const headerRow = schedule.stops.map(header => `<th class="px-4 py-4 font-semibold whitespace-normal">${header}</th>`).join('');
+      timetableHead.innerHTML = `<tr>${headerRow}</tr>`;
+
+      timetableBody.innerHTML = schedule.rows.map(row => {
+        const cells = [
+          `<td class="px-4 py-4 font-semibold text-brand break-words">${row.train}</td>`,
+          ...schedule.stops.slice(1, -1).map((_, idx) => `<td class="px-4 py-4 break-words">${row.times[idx] || '-'}</td>`),
+          `<td class="px-4 py-4 break-words"><span class="inline-flex rounded-full px-3 py-1 text-xs font-semibold ${row.badge}">${row.status}</span></td>`
+        ].join('');
+        return `<tr class="hover:bg-slate-50">${cells}</tr>`;
+      }).join('');
+    }
+
+    branchRadios.forEach(radio => radio.addEventListener('change', (event) => {
+      renderSchedule(event.target.value);
+    }));
+
+    renderSchedule('all');
+  </script>
+</body>
+</html>

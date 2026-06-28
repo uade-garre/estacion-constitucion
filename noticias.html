@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noticias | Estación Constitución</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#00529B',
+              dark: '#003b72'
+            },
+            surface: '#f9f9f9',
+            'surface-muted': '#e2e2e2'
+          },
+          boxShadow: {
+            soft: '0 18px 50px rgba(15, 23, 42, 0.12)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="estilos/estilos.css" />
+</head>
+<body class="bg-surface text-slate-900 antialiased">
+  <header class="fixed inset-x-0 top-0 z-30 border-b border-slate-200 bg-white shadow-sm">
+    <div class="mx-auto max-w-7xl flex flex-wrap items-center justify-between gap-4 px-6 py-4 lg:px-8">
+      <a href="index.html" class="inline-flex items-center gap-3 text-brand-dark">
+        <span class="text-sm font-semibold tracking-[0.24em] uppercase">ESTACIÓN CONSTITUCIÓN</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-600">
+        <a href="horarios.html" class="hover:text-slate-900">Horarios</a>
+        <a href="ramales.html" class="hover:text-slate-900">Ramales</a>
+        <a href="servicios.html" class="hover:text-slate-900">Servicios</a>
+        <a href="noticias.html" class="text-slate-900 font-semibold" aria-current="page">Noticias</a>
+        <a href="faq.html" class="hover:text-slate-900">Preguntas frecuentes</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#" class="hidden sm:inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">Mi cuenta</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20 mx-auto max-w-7xl px-6 py-10 lg:px-8">
+    <section class="relative overflow-hidden rounded-[2rem] bg-brand text-white">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center opacity-30"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-brand/95 via-brand/90 to-brand-dark/95"></div>
+      <div class="relative px-6 py-24 sm:px-10 sm:py-28 lg:px-14">
+        <p class="text-sm uppercase tracking-[0.3em] text-slate-200/80">Noticias y eventos</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Noticias de la estación y eventos culturales</h1>
+        <p class="mt-4 max-w-2xl text-base leading-7 text-slate-100/90">Descubrí las últimas novedades, exposiciones, obras de mejora y actividades abiertas para pasajeras y pasajeros.</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="#" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand transition hover:bg-slate-100">Ver eventos</a>
+          <a href="#" class="inline-flex items-center justify-center rounded-full border border-white/70 bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Estado del servicio</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-10 grid gap-6 lg:grid-cols-[2fr_1fr]">
+      <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Destacado cultural</p>
+            <h2 class="mt-3 text-2xl font-semibold text-slate-900">Nuevos horizontes: 140 años de la historia del ferrocarril</h2>
+          </div>
+          <span class="rounded-full bg-brand px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-white">Evento principal</span>
+        </div>
+        <div class="mt-6 overflow-hidden rounded-[24px] border border-slate-200 bg-slate-100">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80" alt="Galería cultural" class="h-64 w-full object-cover" />
+        </div>
+        <p class="mt-6 text-sm leading-7 text-slate-600">Un recorrido por la evolución del transporte ferroviario argentino con artes, archivos y experiencias interactivas en el hall principal de la estación.</p>
+        <a href="#" class="mt-6 inline-flex items-center text-sm font-semibold text-brand hover:text-brand-dark">Leer artículo completo →</a>
+      </article>
+
+      <div class="space-y-6">
+        <article class="rounded-[28px] border border-slate-200 bg-white p-6 shadow-soft">
+          <p class="text-xs uppercase tracking-[0.24em] text-slate-500">Infraestructura</p>
+          <h3 class="mt-3 text-xl font-semibold text-slate-900">Fase 4 de modernización</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-600">Mejoras en seguridad y alumbrado para facilitar el tránsito en los andenes y vestíbulos.</p>
+          <a href="#" class="mt-4 inline-flex items-center text-sm font-semibold text-brand hover:text-brand-dark">Ver detalles →</a>
+        </article>
+        <article class="rounded-[28px] border border-slate-200 bg-brand px-6 py-6 text-white shadow-soft">
+          <p class="text-xs uppercase tracking-[0.24em] text-slate-200/80">Servicio SUBE</p>
+          <h3 class="mt-3 text-xl font-semibold">Nuevos kioscos SUBE</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-100">15 nuevos terminales para carga rápida y consultas de saldo en la galería norte.</p>
+          <a href="#" class="mt-4 inline-flex items-center text-sm font-semibold text-white underline decoration-white/40 hover:text-slate-100">Localizá kioscos →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="text-sm uppercase tracking-[0.24em] text-slate-500">Proximas actividades</p>
+          <h2 class="mt-3 text-2xl font-semibold text-slate-900">Actividades destacadas</h2>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Planificá tu visita con los programas más relevantes de la estación.</p>
+        </div>
+        <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700">
+          <button class="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-dark">Todos</button>
+          <button class="rounded-full px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100">Dentro de la estación</button>
+          <button class="rounded-full px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100">Cercanas</button>
+        </div>
+      </div>
+
+      <div class="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <article class="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80" alt="Exposición fotográfica" class="h-56 w-full object-cover" />
+          <div class="p-6">
+            <p class="text-xs uppercase tracking-[0.24em] text-brand">Dentro de la estación</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-900">Exposición fotográfica ferroviaria</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">Un viaje visual por la historia de la red ferroviaria de Buenos Aires.</p>
+            <a href="#" class="mt-6 inline-flex items-center text-sm font-semibold text-brand hover:text-brand-dark">Leer más →</a>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft">
+          <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=80" alt="Feria de libros" class="h-56 w-full object-cover" />
+          <div class="p-6">
+            <p class="text-xs uppercase tracking-[0.24em] text-brand">Dentro de la estación</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-900">Feria de libros en el hall</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">Encuentros semanales con editores y autoras del circuito local.</p>
+            <a href="#" class="mt-6 inline-flex items-center text-sm font-semibold text-brand hover:text-brand-dark">Leer más →</a>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft">
+          <img src="https://images.unsplash.com/photo-1514516870925-d1a2f1fea4c8?auto=format&fit=crop&w=1200&q=80" alt="Visita guiada" class="h-56 w-full object-cover" />
+          <div class="p-6">
+            <p class="text-xs uppercase tracking-[0.24em] text-brand">Cercanas</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-900">Visita guiada al museo ferroviario</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">Recorridos especiales por la colección de trenes históricos.</p>
+            <a href="#" class="mt-6 inline-flex items-center text-sm font-semibold text-brand hover:text-brand-dark">Leer más →</a>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft">
+          <img src="https://images.unsplash.com/photo-1522098543979-ffc7f79d34b5?auto=format&fit=crop&w=1200&q=80" alt="Concierto al aire libre" class="h-56 w-full object-cover" />
+          <div class="p-6">
+            <p class="text-xs uppercase tracking-[0.24em] text-brand">Cercanas</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-900">Conciertos en el Parque Lezama</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">Música clásica al aire libre a pasos de la estación.</p>
+            <a href="#" class="mt-6 inline-flex items-center text-sm font-semibold text-brand hover:text-brand-dark">Leer más →</a>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft">
+          <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80" alt="Kiosco SUBE" class="h-56 w-full object-cover" />
+          <div class="p-6">
+            <p class="text-xs uppercase tracking-[0.24em] text-brand">Actualización de servicio</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-900">Nuevas terminales de carga SUBE</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">Instalación de 20 kioscos adicionales para reducir filas.</p>
+            <a href="#" class="mt-6 inline-flex items-center text-sm font-semibold text-brand hover:text-brand-dark">Leer más →</a>
+          </div>
+        </article>
+        <article class="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-soft">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="Espacio cultural" class="h-56 w-full object-cover" />
+          <div class="p-6">
+            <p class="text-xs uppercase tracking-[0.24em] text-brand">Actualización de servicio</p>
+            <h3 class="mt-3 text-xl font-semibold text-slate-900">Organizá tu evento</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">Consultá sobre el uso de espacios públicos para actividades culturales.</p>
+            <a href="#" class="mt-6 inline-flex items-center text-sm font-semibold text-brand hover:text-brand-dark">Solicitar espacio →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-10 rounded-[28px] bg-slate-100 p-8 shadow-soft">
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <h2 class="text-2xl font-semibold text-slate-900">Mantenete informado</h2>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Recibí novedades semanales sobre eventos, cambios de servicio y mejoras de la estación.</p>
+        </div>
+        <form class="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <label class="sr-only" for="newsletter-email">Dirección de correo</label>
+          <input id="newsletter-email" type="email" placeholder="Dirección de correo" class="min-w-0 flex-1 rounded-full border border-slate-300 bg-white px-5 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20" />
+          <button type="submit" class="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">Suscribirme</button>
+        </form>
+        <p class="text-xs text-slate-500">Al suscribirte aceptás nuestra Política de privacidad.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white py-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <p class="text-sm text-slate-600">© 2026 Diseño y desarrollo web - grupo 6</p>
+        <div class="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+          <a href="#" class="hover:text-slate-900">Política de privacidad</a>
+          <a href="#" class="hover:text-slate-900">Términos del servicio</a>
+          <a href="#" class="hover:text-slate-900">Accesibilidad</a>
+          <a href="#" class="hover:text-slate-900">Transparencia</a>
+          <a href="#" class="hover:text-slate-900">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
