@@ -220,9 +220,28 @@
         <div class="rounded-[28px] bg-white p-8 shadow-soft">
           <p class="text-sm uppercase tracking-[0.24em] text-brand">Mapa de accesibilidad</p>
           <h2 class="mt-3 text-2xl font-semibold text-slate-900">Consultá la ubicación exacta de todos los servicios adaptados en tiempo real.</h2>
-          <button class="mt-6 inline-flex items-center justify-center rounded-full bg-brand px-6 py-4 text-sm font-semibold text-white transition hover:bg-brand-dark">Abrir mapa interactivo</button>
+          <a href="index.html#mapa-terminal" class="mt-6 inline-flex items-center justify-center rounded-full bg-brand px-6 py-4 text-sm font-semibold text-white transition hover:bg-brand-dark">Abrir mapa interactivo</a>
         </div>
-        <div class="h-72 rounded-[28px] border border-slate-200 bg-slate-200"></div>
+        <div class="service-map-preview terminal-map" aria-label="Vista previa del mapa de accesibilidad de la terminal">
+          <div class="map-zone map-hall">Hall</div>
+          <div class="map-zone map-access">Accesos</div>
+          <div class="map-zone map-services">Servicios</div>
+          <div class="map-zone map-shops">Locales</div>
+          <div class="map-zone map-platforms">
+            <span>Andenes</span>
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="map-tracks" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="map-shop-row" aria-hidden="true">
+            <span>Café</span><span>SUBE</span><span>Kiosco</span><span>Comidas</span>
+          </div>
+          <div class="map-restroom" aria-hidden="true">WC</div>
+          <span class="map-point is-active" style="left: 34%; top: 68%;">WC</span>
+          <span class="map-point" style="left: 72%; top: 46%;">A</span>
+          <span class="map-point" style="left: 24%; top: 17%;">$</span>
+        </div>
       </div>
     </section>
   </main>
