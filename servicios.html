@@ -68,7 +68,7 @@
         <p class="text-sm uppercase tracking-[0.3em] text-slate-100/80">Accesibilidad y Servicios</p>
         <h1 class="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Accesibilidad y servicios en Constitución</h1>
         <p class="mt-4 max-w-2xl text-base leading-7 text-slate-100/90">Encontrá rampas, baños adaptados, información accesible y asistencia al pasajero para tu viaje.</p>
-        <form class="mt-10 max-w-3xl">
+        <form id="service-search-form" class="mt-10 max-w-3xl">
           <label class="sr-only" for="service-search">Buscar servicios</label>
           <div class="relative">
             <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
@@ -76,6 +76,8 @@
             </span>
             <input id="service-search" type="search" placeholder="Buscar servicios, rampas o asistencia..." class="w-full rounded-full border border-white/20 bg-white/95 px-14 py-4 text-slate-900 shadow-[0_18px_50px_rgba(15,23,42,0.18)] focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30" />
           </div>
+          <button type="submit" class="mt-4 inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-brand shadow-lg shadow-slate-900/10 transition hover:bg-slate-100">Buscar</button>
+          <p id="service-search-result" class="mt-4 hidden rounded-2xl bg-white/95 px-5 py-4 text-sm font-semibold leading-6 text-slate-800 shadow-lg"></p>
         </form>
       </div>
     </section>
@@ -94,7 +96,7 @@
         </div>
 
         <div class="mt-6 grid gap-4 md:grid-cols-2">
-          <article class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
+          <article id="servicio-rampas" data-service-card data-keywords="rampas ascensores movilidad reducida silla ruedas andenes hall" class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
             <div class="flex items-start gap-4">
               <div class="rounded-2xl bg-white p-3 text-brand shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M6 3a2 2 0 0 0-2 2v4h16V5a2 2 0 0 0-2-2H6Zm14 7H4v6a2 2 0 0 0 2 2h4v-2H6v-4h12v4h-4v2h4a2 2 0 0 0 2-2v-6Zm-5 4v4h-4v-4h4Z"/></svg>
@@ -106,7 +108,7 @@
               </div>
             </div>
           </article>
-          <article class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
+          <article id="servicio-banos" data-service-card data-keywords="baños banos sanitarios adaptados wc planta baja anden" class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
             <div class="flex items-start gap-4">
               <div class="rounded-2xl bg-white p-3 text-brand shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h10v5H7z"/><path d="M5 12h14v9H5z"/></svg>
@@ -134,7 +136,7 @@
         </div>
 
         <div class="mt-6 grid gap-4 md:grid-cols-2">
-          <article class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
+          <article id="servicio-braille" data-service-card data-keywords="braille podotactil podotáctil señalética senaletica informacion accesible" class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
             <div class="flex items-start gap-4">
               <div class="rounded-2xl bg-white p-3 text-brand shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5a7 7 0 0 0-7 7v5h14v-5a7 7 0 0 0-7-7Z"/><path d="M9 11h6"/><path d="M9 15h3"/></svg>
@@ -146,7 +148,7 @@
               </div>
             </div>
           </article>
-          <article class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
+          <article id="servicio-anuncios" data-service-card data-keywords="anuncios sonoros megafonia megafonía horarios avisos seguridad" class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
             <div class="flex items-start gap-4">
               <div class="rounded-2xl bg-white p-3 text-brand shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8a7 7 0 0 1-14 0"/><path d="M5 8v4a7 7 0 0 0 14 0V8"/></svg>
@@ -174,7 +176,7 @@
         </div>
 
         <div class="mt-6 grid gap-4 md:grid-cols-2">
-          <article class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
+          <article id="servicio-atencion" data-service-card data-keywords="centro atencion atención asistencia pasajero orientacion orientación hall reloj ayuda" class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
             <div class="flex items-start gap-4">
               <div class="rounded-2xl bg-white p-3 text-brand shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Z"/><path d="M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg>
@@ -186,7 +188,7 @@
               </div>
             </div>
           </article>
-          <article class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
+          <article id="servicio-sanitario" data-service-card data-keywords="puesto sanitario primeros auxilios emergencia medica médica salud brasil" class="rounded-[24px] border border-slate-200 bg-slate-50 p-6">
             <div class="flex items-start gap-4">
               <div class="rounded-2xl bg-white p-3 text-brand shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M19 7h-4V5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v2H5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1Zm-7 0h2v1h-2V7Z"/></svg>
@@ -228,8 +230,12 @@
           <div class="map-zone map-services">Servicios</div>
           <div class="map-zone map-shops">Locales</div>
           <div class="map-zone map-platforms">
-            <span>Andenes</span>
-            <i></i><i></i><i></i><i></i><i></i>
+            <span class="platform-title">Andenes</span>
+            <div class="platform-list" aria-hidden="true">
+              <span class="platform-row"><strong>1-4</strong><span>La Plata</span></span>
+              <span class="platform-row"><strong>5-8</strong><span>A. Korn</span></span>
+              <span class="platform-row"><strong>9-12</strong><span>Ezeiza</span></span>
+            </div>
           </div>
           <div class="map-tracks" aria-hidden="true">
             <span></span><span></span><span></span><span></span><span></span>
@@ -335,6 +341,34 @@
       if (sendBtn) sendBtn.addEventListener('click', function(){ send(); });
       if (input) input.addEventListener('keydown', function(event){ if (event.key === 'Enter') send(); });
       quicks.forEach(function(btn){ btn.addEventListener('click', function(){ send(btn.dataset.msg); }); });
+
+      const serviceForm = document.querySelector('#service-search-form');
+      const serviceInput = document.querySelector('#service-search');
+      const serviceResult = document.querySelector('#service-search-result');
+      const serviceCards = Array.from(document.querySelectorAll('[data-service-card]'));
+      if (serviceForm && serviceInput && serviceResult) {
+        serviceForm.addEventListener('submit', function(event){
+          event.preventDefault();
+          const query = serviceInput.value.trim().toLowerCase();
+          const match = serviceCards.find(function(card){
+            return card.dataset.keywords.toLowerCase().includes(query) || card.textContent.toLowerCase().includes(query);
+          });
+          serviceCards.forEach(function(card){ card.classList.remove('service-card-match'); });
+          serviceResult.classList.remove('hidden');
+          if (!query) {
+            serviceResult.textContent = 'Escribí qué necesitás encontrar: baños, rampas, asistencia, braille, anuncios o puesto sanitario.';
+            return;
+          }
+          if (match) {
+            match.classList.add('service-card-match');
+            const title = match.querySelector('h3')?.textContent || 'servicio';
+            serviceResult.innerHTML = 'Encontramos: <strong>' + title + '</strong>. <a class="ml-2 text-brand underline decoration-brand/30 underline-offset-4" href="#' + match.id + '">Ver ubicación</a>';
+            match.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            serviceResult.innerHTML = 'No encontramos coincidencia exacta. Probá con <strong>baños</strong>, <strong>rampas</strong>, <strong>asistencia</strong>, <strong>braille</strong> o <strong>sanitario</strong>.';
+          }
+        });
+      }
     })();
   </script>
 </body>
