@@ -290,8 +290,8 @@ input {
   z-index: 2;
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border: 3px solid #ffffff;
   border-radius: 999px;
   background: #00529b;
@@ -302,6 +302,36 @@ input {
   font-weight: 900;
   transform: translate(-50%, -50%);
   transition: transform 0.18s ease, background 0.18s ease, opacity 0.18s ease;
+}
+
+.map-point-info {
+  left: 20%;
+  top: 39%;
+}
+
+.map-point-wc {
+  left: 39%;
+  top: 67%;
+}
+
+.map-point-platforms {
+  left: 96%;
+  top: 46%;
+}
+
+.map-point-shops {
+  left: 50%;
+  top: 24%;
+}
+
+.map-point-sube {
+  left: 16%;
+  top: 73%;
+}
+
+.map-point-subte {
+  left: 55%;
+  top: 83%;
 }
 
 .map-point:hover,
