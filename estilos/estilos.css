@@ -87,34 +87,74 @@ input {
   width: 43%;
   height: 64%;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 14px;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 14px;
   border-color: #94a3b8;
   background: #f1f5f9;
 }
 
-.map-platforms i {
-  position: absolute;
-  left: 14%;
-  right: 14%;
-  height: 10px;
-  border-radius: 999px;
-  background: #cbd5e1;
+.platform-title {
+  color: #0f172a;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.map-platforms i:nth-of-type(1) { top: 25%; }
-.map-platforms i:nth-of-type(2) { top: 36%; }
-.map-platforms i:nth-of-type(3) { top: 47%; }
-.map-platforms i:nth-of-type(4) { top: 58%; }
-.map-platforms i:nth-of-type(5) { top: 69%; }
+.platform-list {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+
+.platform-row {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  min-height: 48px;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #334155;
+  cursor: pointer;
+  padding: 8px;
+  text-align: left;
+}
+
+.platform-row:hover,
+.platform-row:focus {
+  border-color: #00529b;
+  outline: none;
+}
+
+.platform-row strong {
+  display: grid;
+  min-height: 30px;
+  place-items: center;
+  border-radius: 10px;
+  background: #00529b;
+  color: #ffffff;
+  font-size: 0.78rem;
+}
+
+.platform-row span {
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-transform: none;
+  letter-spacing: 0;
+}
 
 .map-tracks {
   position: absolute;
-  right: 12%;
-  top: 33%;
-  width: 33%;
-  height: 39%;
+  right: 9%;
+  top: 84%;
+  width: 39%;
+  height: 8%;
   pointer-events: none;
 }
 
@@ -127,11 +167,11 @@ input {
   background: repeating-linear-gradient(90deg, #475569 0 16px, transparent 16px 24px);
 }
 
-.map-tracks span:nth-child(1) { top: 6%; }
-.map-tracks span:nth-child(2) { top: 27%; }
-.map-tracks span:nth-child(3) { top: 48%; }
-.map-tracks span:nth-child(4) { top: 69%; }
-.map-tracks span:nth-child(5) { top: 90%; }
+.map-tracks span:nth-child(1) { top: 4%; }
+.map-tracks span:nth-child(2) { top: 24%; }
+.map-tracks span:nth-child(3) { top: 44%; }
+.map-tracks span:nth-child(4) { top: 64%; }
+.map-tracks span:nth-child(5) { top: 84%; }
 
 .map-services {
   left: 8%;

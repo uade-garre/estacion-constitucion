@@ -132,8 +132,13 @@
           <div class="map-zone map-services">Servicios</div>
           <div class="map-zone map-shops">Locales</div>
           <div class="map-zone map-platforms">
-            <span>Andenes 1-16</span>
-            <i></i><i></i><i></i><i></i><i></i>
+            <span class="platform-title">Andenes y ramales</span>
+            <div class="platform-list" aria-label="Distribución orientativa de andenes por ramal">
+              <button type="button" class="platform-row" data-title="Andenes 1-4" data-detail="Salidas habituales hacia La Plata y Bosques vía Quilmes. Confirmá siempre en pantallas."><strong>1-4</strong><span>La Plata / Bosques vía Quilmes</span></button>
+              <button type="button" class="platform-row" data-title="Andenes 5-8" data-detail="Salidas habituales hacia Alejandro Korn y Bosques vía Temperley."><strong>5-8</strong><span>Alejandro Korn / vía Temperley</span></button>
+              <button type="button" class="platform-row" data-title="Andenes 9-12" data-detail="Salidas habituales hacia Ezeiza, Glew y Cañuelas."><strong>9-12</strong><span>Ezeiza / Glew / Cañuelas</span></button>
+              <button type="button" class="platform-row" data-title="Andenes 13-16" data-detail="Refuerzo de servicios metropolitanos y cambios operativos según demanda."><strong>13-16</strong><span>Refuerzos y servicios metropolitanos</span></button>
+            </div>
           </div>
           <div class="map-tracks" aria-hidden="true">
             <span></span><span></span><span></span><span></span><span></span>
@@ -144,7 +149,7 @@
           <div class="map-restroom" aria-hidden="true">WC</div>
           <button class="map-point is-active" type="button" style="left: 25%; top: 35%;" data-location="informacion" data-type="servicio" data-title="Punto de información" data-detail="Orientación al pasajero, reclamos y consultas generales en el hall central.">i</button>
           <button class="map-point" type="button" style="left: 34%; top: 68%;" data-location="banos" data-type="servicio" data-title="Baños públicos" data-detail="Baños ubicados cerca del corredor central y próximos al sector de andenes.">WC</button>
-          <button class="map-point" type="button" style="left: 72%; top: 46%;" data-location="andenes" data-type="anden" data-title="Andenes principales" data-detail="Sectores de salida de ramales La Plata, Ezeiza, Alejandro Korn y Bosques.">A</button>
+          <button class="map-point" type="button" style="left: 72%; top: 46%;" data-location="andenes" data-type="anden" data-title="Andenes principales" data-detail="Andenes 1-4: La Plata y Bosques vía Quilmes. 5-8: Alejandro Korn. 9-12: Ezeiza y Glew. 13-16: refuerzos y servicios metropolitanos.">A</button>
           <button class="map-point" type="button" style="left: 24%; top: 17%;" data-location="comercios" data-type="interes" data-title="Comercios y cafeterías" data-detail="Locales de comida, kioscos y cafeterías para compras rápidas antes del viaje.">$</button>
           <button class="map-point" type="button" style="left: 20%; top: 73%;" data-location="sube" data-type="interes" data-title="Carga SUBE" data-detail="Puntos de carga y consulta de saldo SUBE próximos a boleterías.">S</button>
           <button class="map-point" type="button" style="left: 48%; top: 85%;" data-location="subte" data-type="servicio" data-title="Combinación Subte C" data-detail="Conexión directa hacia Subte C y salida al entorno urbano de Constitución.">C</button>
@@ -392,12 +397,20 @@
       const mapTitle = document.querySelector('#map-detail-title');
       const mapCopy = document.querySelector('#map-detail-copy');
       const mapFilters = document.querySelectorAll('.terminal-filter');
+      const platformRows = document.querySelectorAll('.platform-row');
       mapPoints.forEach(function(point){
         point.addEventListener('click', function(){
           mapPoints.forEach(function(item){ item.classList.remove('is-active'); });
           point.classList.add('is-active');
           if (mapTitle) mapTitle.textContent = point.dataset.title;
           if (mapCopy) mapCopy.textContent = point.dataset.detail;
+        });
+      });
+      platformRows.forEach(function(row){
+        row.addEventListener('click', function(){
+          mapPoints.forEach(function(item){ item.classList.remove('is-active'); });
+          if (mapTitle) mapTitle.textContent = row.dataset.title;
+          if (mapCopy) mapCopy.textContent = row.dataset.detail;
         });
       });
       mapFilters.forEach(function(filter){
