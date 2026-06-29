@@ -547,7 +547,8 @@ input {
   }
 
   .terminal-map {
-    min-height: 640px;
+    min-height: 760px;
+    border-radius: 22px;
   }
 
   .map-point {
@@ -606,12 +607,12 @@ input {
   .map-platforms {
     left: 5%;
     right: auto;
-    top: 63%;
+    top: 57%;
     width: 90%;
     height: auto;
-    min-height: 210px;
-    padding: 10px;
-    gap: 8px;
+    min-height: 280px;
+    padding: 46px 10px 12px;
+    gap: 10px;
   }
 
   .platform-title {
@@ -620,38 +621,39 @@ input {
   }
 
   .platform-list {
-    gap: 7px;
+    gap: 8px;
   }
 
   .platform-row {
-    grid-template-columns: 48px minmax(0, 1fr);
-    min-height: 38px;
-    padding: 7px;
+    grid-template-columns: 54px minmax(0, 1fr);
+    min-height: 44px;
+    padding: 8px;
+    border-radius: 16px;
   }
 
   .platform-row strong {
-    min-height: 28px;
+    min-height: 30px;
     font-size: 0.72rem;
   }
 
   .platform-row span {
-    font-size: 0.64rem;
-    line-height: 1.18;
+    font-size: 0.66rem;
+    line-height: 1.25;
   }
 
   .map-access {
     left: 5%;
-    bottom: 3%;
+    bottom: 2%;
     width: 90%;
-    height: 7%;
+    height: 6%;
   }
 
   .map-tracks {
     right: 8%;
     top: auto;
-    bottom: 5%;
+    bottom: 3.5%;
     width: 84%;
-    height: 6%;
+    height: 5%;
   }
 
   .map-point-info {
@@ -665,8 +667,8 @@ input {
   }
 
   .map-point-platforms {
-    left: 88%;
-    top: 68%;
+    left: 50%;
+    top: 58.5%;
   }
 
   .map-point-shops {
@@ -681,6 +683,6 @@ input {
 
   .map-point-subte {
     left: 50%;
-    top: 92%;
+    top: 95%;
   }
 }

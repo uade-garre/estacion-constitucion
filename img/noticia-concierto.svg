@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Concierto al aire libre</title>
+  <desc id="desc">Escenario con música en vivo y público en un parque cercano a la estación.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dff3ff"/>
+      <stop offset=".62" stop-color="#e8f8ef"/>
+      <stop offset="1" stop-color="#d8f3dc"/>
+    </linearGradient>
+    <linearGradient id="stage" x1="0" x2="1">
+      <stop offset="0" stop-color="#003b72"/>
+      <stop offset="1" stop-color="#00529b"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="520" fill="url(#sky)"/>
+  <circle cx="750" cy="92" r="54" fill="#facc15" opacity=".9"/>
+  <path d="M0 356c118-56 191-45 284-18 116 34 207 20 316-18 102-36 188-26 300 30v170H0z" fill="#86efac" opacity=".75"/>
+  <rect x="160" y="170" width="580" height="210" rx="28" fill="url(#stage)"/>
+  <path d="M190 170h520l-60-70H250z" fill="#0f172a"/>
+  <rect x="226" y="224" width="92" height="86" rx="12" fill="#e0f2fe" opacity=".95"/>
+  <rect x="388" y="218" width="124" height="92" rx="46" fill="#f8fafc" opacity=".95"/>
+  <rect x="584" y="224" width="92" height="86" rx="12" fill="#e0f2fe" opacity=".95"/>
+  <path d="M275 198v-48m350 48v-48" stroke="#f8fafc" stroke-width="10" stroke-linecap="round"/>
+  <path d="M288 150h-38m388 0h-38" stroke="#f8fafc" stroke-width="10" stroke-linecap="round"/>
+  <path d="M205 382h490" stroke="#0f172a" stroke-width="18" stroke-linecap="round"/>
+  <g fill="#0f172a" opacity=".9">
+    <circle cx="248" cy="430" r="20"/>
+    <circle cx="332" cy="424" r="22"/>
+    <circle cx="424" cy="436" r="19"/>
+    <circle cx="514" cy="424" r="22"/>
+    <circle cx="604" cy="434" r="20"/>
+    <circle cx="682" cy="426" r="18"/>
+  </g>
+  <g stroke="#00529b" stroke-width="8" stroke-linecap="round" opacity=".75">
+    <path d="M740 202c32 23 32 66 0 90"/>
+    <path d="M770 172c57 48 57 112 0 160"/>
+  </g>
+</svg>
